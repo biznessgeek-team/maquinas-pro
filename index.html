@@ -689,11 +689,26 @@
             align-items: center;
         }
 
-        .reconstruction-img img {
+        @keyframes panImage {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .reconstruction-img {
             width: 100%;
+            min-height: 550px;
             border-radius: var(--radius-lg);
             border: 1px solid var(--dark-border);
             box-shadow: var(--shadow-card);
+            background-image: url('assets/catalog/zoomlion_earthmoving_machinery_company_cover.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            animation: panImage 30s ease-in-out infinite;
+        }
+
+        .reconstruction-img img {
+            display: none;
         }
 
         .feature-item {
