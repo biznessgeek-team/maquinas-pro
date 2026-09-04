@@ -832,6 +832,45 @@
             .product-grid { grid-template-columns: 1fr; }
             .footer-cols { grid-template-columns: 1fr; }
         }
+    
+        /* ── Secciones Adicionales (Proceso & Contacto) ── */
+        .steps-section { padding: 80px 24px; background: var(--dark-charcoal); }
+        .steps-wrapper { max-width: 1200px; margin: 0 auto; }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .step-card { padding: 30px; background: rgba(255,255,255,0.02); border: 1px solid var(--dark-border); border-radius: var(--radius-lg); position: relative; overflow: hidden; }
+        .step-num { font-family: var(--font-heading); font-size: 60px; font-weight: 800; color: rgba(242, 183, 5, 0.1); position: absolute; top: -10px; right: 10px; line-height: 1; }
+        .step-card h4 { font-family: var(--font-heading); font-size: 22px; color: var(--text-white); margin-bottom: 12px; position: relative; z-index: 1; text-transform: uppercase; }
+        .step-card p { color: var(--text-gray); font-size: 15px; position: relative; z-index: 1; }
+
+        .contact-section { padding: 80px 24px; background: var(--dark-surface); }
+        .contact-wrapper { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
+        
+        .contact-info p { font-size: 18px; color: var(--text-gray); margin-bottom: 30px; }
+        .contact-card { background: rgba(255,255,255,0.03); padding: 30px; border-radius: var(--radius-lg); border-left: 4px solid var(--primary-gold); margin-bottom: 30px; }
+        .contact-card h4 { font-family: var(--font-heading); font-size: 18px; color: var(--text-white); margin-bottom: 10px; text-transform: uppercase; }
+        .contact-card p { color: var(--text-gray); margin-bottom: 15px; }
+        .contact-card a { color: var(--primary-gold); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
+
+        .contact-form { background: var(--dark-charcoal); padding: 40px; border-radius: var(--radius-lg); border: 1px solid var(--dark-border); }
+        .contact-form form { display: grid; gap: 20px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group label { font-size: 13px; color: #aaa; text-transform: uppercase; letter-spacing: 1px; }
+        .form-control { background: rgba(255,255,255,0.05); border: 1px solid var(--dark-border); color: #fff; padding: 14px 16px; border-radius: var(--radius-sm); font-family: var(--font-body); font-size: 15px; transition: 0.3s; }
+        .form-control:focus { border-color: var(--primary-gold); outline: none; background: rgba(255,255,255,0.08); }
+        
+        .chips-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 5px; }
+        .chip { display: inline-block; cursor: pointer; }
+        .chip input { display: none; }
+        .chip span { display: inline-block; padding: 8px 16px; border: 1px solid var(--dark-border); border-radius: 20px; font-size: 13px; color: var(--text-gray); transition: 0.3s; background: rgba(255,255,255,0.02); }
+        .chip input:checked + span { background: var(--primary-gold); color: #000; border-color: var(--primary-gold); font-weight: 600; }
+        
+        @media (max-width: 992px) {
+            .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
+            .form-row { grid-template-columns: 1fr; gap: 20px; }
+            .contact-form { padding: 25px; }
+        }
+
     </style>
 </head>
 <body>
@@ -847,7 +886,7 @@
                 <li><a href="#reconstruccion">Reconstrucción Urbana</a></li>
                 <li><a href="#ventajas">Por Qué Elegirnos</a></li>
                 <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#contacto_form">Contacto</a></li>
             </ul>
             <div class="nav-actions">
                 <a id="navWhatsappBtn" href="https://wa.me/573174775767" target="_blank" class="btn-whatsapp">
@@ -1343,6 +1382,108 @@
             </div>
         </div>
     </div>
+
+    
+    <!-- ── Pasos / Proceso ────────────────────────────────────────────────── -->
+    <section class="steps-section" id="ventajas">
+        <div class="steps-wrapper">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <span class="section-tag">Metodología Comprobada</span>
+                <h2 class="section-title">PROCESO DE ADQUISICIÓN SIMPLE</h2>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-num">01</div>
+                    <h4>1. Elige tu Equipo</h4>
+                    <p>Explora nuestro catálogo multimarca con más de 130 configuraciones posibles para hallar la máquina exacta que tu obra exige.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">02</div>
+                    <h4>2. Cotiza en Minutos</h4>
+                    <p>Recibe asesoría técnica de inmediato vía WhatsApp o formulario, con cotizaciones oficiales y opciones de leasing en menos de 24 horas.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">03</div>
+                    <h4>3. Despliegue en Obra</h4>
+                    <p>Nacionalizamos y entregamos el equipo directamente en tu frente de trabajo, con inducción operativa y soporte postventa activo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Contacto Formulario ───────────────────────────────────────────── -->
+    <section class="contact-section" id="contacto_form">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <span class="section-tag">Atención Comercial</span>
+                <h2 class="section-title">SOLICITAR INFORMACIÓN</h2>
+                <p>Nuestro equipo de ingeniería te contactará rápidamente para estructurar una propuesta técnica y económica adaptada a las necesidades de tu proyecto.</p>
+                
+                <a href="https://wa.me/573174775767?text=Hola%20M%C3%A1quinas%20Pro%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20equipos" target="_blank" class="btn btn-whatsapp" style="margin-bottom: 40px; display: inline-flex;">
+                    <i class="fab fa-whatsapp"></i> Chat Directo con un Asesor
+                </a>
+
+                <div class="contact-card">
+                    <h4><i class="fas fa-map-marker-alt" style="color:var(--primary-gold); margin-right:8px;"></i> Nuestras Oficinas</h4>
+                    <p>
+                        <strong style="color:var(--text-white);">MÁQUINAS PRO Colombia</strong><br>
+                        Avenida 5ta Norte #21-22, Oficina 502<br>
+                        Edificio Centro Versalles, Cali, Valle del Cauca
+                    </p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Edificio+Centro+Versalles+Cali" target="_blank">
+                        <i class="fas fa-location-arrow"></i> Abrir en Google Maps
+                    </a>
+                </div>
+                <p style="font-size:13px; color:#666;">
+                    <i class="fas fa-lock" style="color:var(--primary-gold);"></i> Tus datos son tratados de forma confidencial conforme a la Ley 1581 de 2012 (Habeas Data).
+                </p>
+            </div>
+
+            <div class="contact-form">
+                <form action="https://formsubmit.co/contacto@maquinaspro.com" method="POST">
+                    <input type="hidden" name="_subject" value="Nueva Solicitud Web - MÁQUINAS PRO">
+                    <input type="hidden" name="_captcha" value="false">
+                    <!-- Configurar luego: <input type="hidden" name="_next" value="gracias.html"> -->
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nombre Completo *</label>
+                            <input type="text" name="Nombre" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Empresa / Organización *</label>
+                            <input type="text" name="Empresa" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Correo Electrónico *</label>
+                            <input type="email" name="Email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp / Teléfono *</label>
+                            <input type="tel" name="Telefono" class="form-control" placeholder="+57 300 000 0000" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top:10px;">
+                        <label>¿En qué podemos ayudarte? (Selecciona una o varias)</label>
+                        <div class="chips-container">
+                            <label class="chip"><input type="checkbox" name="Interes" value="Comprar Equipo Nuevo"><span>Comprar Equipo Nuevo</span></label>
+                            <label class="chip"><input type="checkbox" name="Interes" value="Cotizar Leasing"><span>Cotizar Leasing</span></label>
+                            <label class="chip"><input type="checkbox" name="Interes" value="Flota Especial"><span>Flota Especial de Gobierno</span></label>
+                            <label class="chip"><input type="checkbox" name="Interes" value="Repuestos/Servicio"><span>Repuestos / Servicio Técnico</span></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top:15px;">
+                        <button type="submit" class="btn btn-gold" style="width:100%; border:none; cursor:pointer;">Enviar Solicitud Segura <i class="fas fa-paper-plane" style="margin-left:8px;"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <!-- ── Footer ───────────────────────────────────────────────────────── -->
     <footer id="contacto">
