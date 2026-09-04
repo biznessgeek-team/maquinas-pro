@@ -191,7 +191,7 @@
         .prod-gallery-col {
             background: #ffffff;
             border-radius: var(--radius-lg);
-            padding: 40px;
+            padding: 0;
             border: 1px solid var(--dark-border);
             display: flex;
             flex-direction: column;
@@ -200,12 +200,13 @@
             box-shadow: var(--shadow-card);
             min-height: 440px;
             position: relative;
+            overflow: hidden;
         }
 
         .prod-gallery-col img {
-            max-width: 95%;
-            max-height: 380px;
-            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.4s ease;
         }
 
