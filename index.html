@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MÁQUINAS PRO » | Importador y Representante de Maquinaria Pesada Multimarca en Colombia</title>
+    <meta name="description" content="Venta, leasing y alquiler de maquinaria pesada nueva 0 horas en Colombia: Caterpillar, Zoomlion, HD Hyundai, Volvo, CASE, Shantui, Hitachi y Develon. Equipos para construcción, minería y reconstrucción urbana.">
+    <link rel="icon" href="assets/logo/logo-maquinas-pro.png" type="image/png">
+
+    <!-- SEO & Open Graph Meta Tags -->
+    <meta name="keywords" content="maquinaria pesada, excavadoras, retroexcavadoras, venta de maquinaria, leasing maquinaria, Colombia, Caterpillar, Volvo, Zoomlion, Hyundai, reconstrucción urbana, equipos de construcción">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.maquinaspro.com/">
+    <meta property="og:title" content="MÁQUINAS PRO » | Venta y Leasing de Maquinaria Pesada en Colombia">
+    <meta property="og:description" content="Importador multimarca: Caterpillar, Volvo, Zoomlion, HD Hyundai. Flotas nuevas 0 horas listas para entrega y reconstrucción urbana.">
+    <meta property="og:image" content="https://www.maquinaspro.com/assets/logo/logo-maquinas-pro.png">
+    
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="maquinaspro.com">
+    <meta property="twitter:url" content="https://www.maquinaspro.com/">
+    <meta name="twitter:title" content="MÁQUINAS PRO » | Venta y Leasing de Maquinaria Pesada en Colombia">
+    <meta name="twitter:description" content="Importador multimarca: Caterpillar, Volvo, Zoomlion, HD Hyundai. Flotas nuevas 0 horas listas para entrega inmediata.">
+    <meta name="twitter:image" content="https://www.maquinaspro.com/assets/logo/logo-maquinas-pro.png">
+
+    
+    <!-- Google Fonts: Oswald & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-gold: #F2B705;
+            --primary-gold-hover: #d9a304;
+            --accent-orange: #FF6600;
+            --dark-charcoal: #121316;
+            --dark-surface: #1E2024;
+            --dark-card: #26292E;
+            --dark-border: #353940;
+            --text-white: #FFFFFF;
+            --text-gray: #A0A5B0;
+            --text-muted: #717784;
+            --font-heading: 'Oswald', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --shadow-card: 0 10px 30px rgba(0,0,0,0.35);
+            --shadow-glow: 0 0 25px rgba(242, 183, 5, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--dark-charcoal);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ── Header & Navbar ────────────────────────────────────────────── */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(18, 19, 22, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-wrapper img {
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-gold);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: none;
+        }
+
+        .btn-gold {
+            background-color: var(--primary-gold);
+            color: #000;
+        }
+
+        .btn-gold:hover {
+            background-color: var(--primary-gold-hover);
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary-gold);
+            color: var(--primary-gold);
+        }
+
+        .btn-outline:hover {
+            background: rgba(242, 183, 5, 0.1);
+            color: var(--text-white);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: #fff;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #20BA5A;
+            transform: translateY(-2px);
+        }
+
+        /* ── Hero Section ───────────────────────────────────────────────── */
+        .hero-section {
+            position: relative;
+            min-height: 82vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(180deg, rgba(18,19,22,0.4) 0%, rgba(18,19,22,0.95) 100%),
+                        url('assets/hero/hero_maquinas_pro.jpg') center/cover no-repeat;
+            border-bottom: 2px solid var(--primary-gold);
+            padding: 80px 24px 60px;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(242, 183, 5, 0.15);
+            border: 1px solid var(--primary-gold);
+            color: var(--primary-gold);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 18px;
+            max-width: 900px;
+        }
+
+        .hero-title span {
+            color: var(--primary-gold);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-gray);
+            max-width: 760px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .hero-ctas .btn {
+            padding: 14px 28px;
+            font-size: 15px;
+        }
+
+        /* ── Brand Carousel Bar ─────────────────────────────────────────── */
+        .brand-bar {
+            background: var(--dark-surface);
+            border: 1px solid var(--dark-border);
+            border-radius: var(--radius-md);
+            padding: 18px 24px;
+            max-width: 1200px;
+        }
+
+        .brand-bar-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .brand-logos-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .brand-item {
+            background: rgba(255,255,255,0.05);
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brand-item:hover, .brand-item.active {
+            background: rgba(242, 183, 5, 0.12);
+            border-color: var(--primary-gold);
+            transform: translateY(-2px);
+        }
+
+        .brand-item img {
+            height: 24px;
+            max-width: 100px;
+            object-fit: contain;
+            filter: brightness(0.9);
+        }
+
+        /* ── Catalog Section ────────────────────────────────────────────── */
+        .catalog-section {
+            padding: 80px 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-tag {
+            color: var(--primary-gold);
+            font-family: var(--font-heading);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 40px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            color: var(--text-gray);
+            font-size: 16px;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* Filter Tabs */
+        .filter-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .category-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            background: var(--dark-surface);
+            border: 1px solid var(--dark-border);
+            color: var(--text-gray);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-white);
+            border-color: var(--primary-gold);
+        }
+
+        .tab-btn.active {
+            background: var(--primary-gold);
+            color: #000;
+            border-color: var(--primary-gold);
+            font-weight: 700;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--dark-surface);
+            border: 1px solid var(--dark-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-card);
+            position: relative;
+        }
+
+        .product-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5), var(--shadow-glow);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            background: #fff;
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .card-img-wrapper img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .card-img-wrapper img {
+            transform: scale(1.06);
+        }
+
+        .brand-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(0,0,0,0.85);
+            color: var(--primary-gold);
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(242, 183, 5, 0.4);
+        }
+
+        .condition-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: #25D366;
+            color: #000;
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-model {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-white);
+            margin-bottom: 4px;
+        }
+
+        .card-category {
+            color: var(--primary-gold);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .app-highlight {
+            background: rgba(255, 102, 0, 0.1);
+            border-left: 3px solid var(--accent-orange);
+            padding: 6px 10px;
+            font-size: 11.5px;
+            color: #FFAA77;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin-bottom: 16px;
+        }
+
+        .quick-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            background: var(--dark-card);
+            border-radius: var(--radius-sm);
+            padding: 12px 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--dark-border);
+        }
+
+        .spec-box {
+            text-align: center;
+        }
+
+        .spec-label {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .spec-val {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-white);
+        }
+
+        .card-footer-btns {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .card-footer-btns .btn {
+            flex: 1;
+            padding: 10px 12px;
+            font-size: 12px;
+        }
+
+        /* ── Gecolsa-Style Product Detail Modal ─────────────────────────── */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-container {
+            background: var(--dark-surface);
+            border: 1px solid var(--primary-gold);
+            border-radius: var(--radius-lg);
+            max-width: 1050px;
+            width: 100%;
+            max-height: 92vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8), var(--shadow-glow);
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.95) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 18px;
+            right: 20px;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: var(--text-white);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        .modal-close-btn:hover {
+            background: var(--primary-gold);
+            color: #000;
+        }
+
+        .modal-hero-split {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        .modal-img-col {
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 24px;
+            position: relative;
+        }
+
+        .modal-img-col img {
+            max-width: 100%;
+            max-height: 340px;
+            object-fit: contain;
+        }
+
+        .modal-info-col {
+            padding: 36px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .modal-brand-tag {
+            color: var(--primary-gold);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .modal-title {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 14px;
+        }
+
+        .modal-summary {
+            color: var(--text-gray);
+            font-size: 14.5px;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .modal-ctas-group {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* Modal Tabs & Details */
+        .modal-details-body {
+            padding: 32px;
+        }
+
+        .modal-specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        .modal-specs-table th {
+            background: var(--dark-card);
+            color: var(--primary-gold);
+            font-family: var(--font-heading);
+            font-size: 14px;
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 2px solid var(--primary-gold);
+        }
+
+        .modal-specs-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--dark-border);
+            font-size: 14px;
+        }
+
+        .modal-specs-table tr:nth-child(even) {
+            background: rgba(255,255,255,0.02);
+        }
+
+        /* ── Special Earthquake / Reconstruction Section ────────────────── */
+        .reconstruction-section {
+            background: linear-gradient(135deg, #181A1E 0%, #121316 100%);
+            border-top: 1px solid var(--dark-border);
+            border-bottom: 1px solid var(--dark-border);
+            padding: 80px 24px;
+        }
+
+        .reconstruction-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .reconstruction-img img {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--dark-border);
+            box-shadow: var(--shadow-card);
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(242, 183, 5, 0.15);
+            border: 1px solid var(--primary-gold);
+            color: var(--primary-gold);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .feature-text p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* ── Footer ─────────────────────────────────────────────────────── */
+        footer {
+            background: #0B0C0E;
+            padding: 60px 24px 30px;
+            border-top: 1px solid var(--dark-border);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-multibrand-banner {
+            text-align: center;
+            padding-bottom: 40px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--dark-border);
+        }
+
+        .footer-multibrand-banner img {
+            max-width: 100%;
+            height: auto;
+            max-height: 50px;
+            object-fit: contain;
+        }
+
+        .footer-cols {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            color: var(--primary-gold);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .footer-col p, .footer-col li {
+            color: var(--text-gray);
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid var(--dark-border);
+            padding-top: 24px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        /* Responsive */
+
+        /* Mobile Menu Toggle */
+        .nav-actions { display: flex; align-items: center; gap: 12px; }
+        .mobile-menu-btn { display: none; color: var(--text-white); font-size: 24px; cursor: pointer; background: none; border: none; padding: 5px; }
+        
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(18, 19, 22, 0.98);
+                backdrop-filter: blur(12px);
+                padding: 10px 0;
+                border-bottom: 1px solid var(--dark-border);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            }
+            .nav-links.active { display: flex; }
+            .nav-links li { width: 100%; }
+            .nav-links a { padding: 15px 24px; display: block; border-bottom: 1px solid rgba(255,255,255,0.05); }
+            .mobile-menu-btn { display: block; }
+            .btn-whatsapp span { display: none; } /* Hide text on very small screens, keep icon */
+        }
+
+        @media (max-width: 992px) {
+            .hero-title { font-size: 42px; }
+            .modal-hero-split { grid-template-columns: 1fr; }
+            .reconstruction-wrapper { grid-template-columns: 1fr; }
+            .footer-cols { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            
+            .hero-title { font-size: 32px; }
+            .product-grid { grid-template-columns: 1fr; }
+            .footer-cols { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── Header ───────────────────────────────────────────────────────── -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo-wrapper">
+                <img src="assets/logo/logo-maquinas-pro.png" alt="MÁQUINAS PRO »">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#catalogo" class="active">Catálogo Multimarca</a></li>
+                <li><a href="#reconstruccion">Reconstrucción Urbana</a></li>
+                <li><a href="#ventajas">Por Qué Elegirnos</a></li>
+                <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a id="navWhatsappBtn" href="https://wa.me/573174775767" target="_blank" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> <span>+57 317 477 5767</span>
+                </a>
+                <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Abrir menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── Hero Section ─────────────────────────────────────────────────── -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-shield-halved"></i> Representante e Importador Multimarca en Colombia
+            </div>
+            <h1 class="hero-title">
+                POTENCIA & RESPALDO EN <span>MAQUINARIA PESADA</span> 0 HORAS
+            </h1>
+            <p class="hero-subtitle">
+                Distribución oficial, leasing, alquiler y postventa garantizada de las 8 marcas líderes globales: <strong>Caterpillar, Zoomlion, HD Hyundai, Volvo, Case, Shantui, Hitachi y Develon</strong>. Equipos nuevos de fábrica con disponibilidad inmediata para construcción, minería y recuperación de infraestructura.
+            </p>
+            <div class="hero-ctas">
+                <a href="#catalogo" class="btn btn-gold">
+                    <i class="fas fa-th-large"></i> Ver Catálogo de Maquinaria
+                </a>
+                <a href="https://wa.me/573174775767?text=Hola%2C%20deseo%20asesor%C3%ADa%20personalizada%20para%20compra%2Fleasing%20de%20maquinaria" target="_blank" class="btn btn-outline">
+                    <i class="fas fa-headset"></i> Hablar con Asesor Técnico
+                </a>
+            </div>
+
+            <!-- Brand Filter Strip -->
+            <div class="brand-bar">
+                <div class="brand-bar-title">Filtrar por Marca Oficial:</div>
+                <div class="brand-logos-flex">
+                    <div class="brand-item active" onclick="filterByBrand('all')">
+                        <span style="font-size:12px; font-weight:700; color:#fff;">TODAS</span>
+                    </div>
+                    <div class="brand-item" onclick="filterByBrand('caterpillar')">
+                        <img src="assets/brands/caterpillar.png" alt="Caterpillar">
+                    </div>
+                    <div class="brand-item" onclick="filterByBrand('zoomlion')">
+                        <img src="assets/brands/zoomlion.png" alt="Zoomlion">
+                    </div>
+                    <div class="brand-item" onclick="filterByBrand('hyundai')">
+                        <img src="assets/brands/hyundai.png" alt="HD Hyundai">
+                    </div>
+                    <div class="brand-item" onclick="filterByBrand('volvo')">
+                        <span style="font-weight:800; font-size:14px; color:#fff;">VOLVO</span>
+                    </div>
+                    <div class="brand-item" onclick="filterByBrand('case')">
+                        <img src="assets/brands/case.png" alt="CASE">
+                    </div>
+                    <div class="brand-item" onclick="filterByBrand('shantui')">
+                        <img src="assets/brands/shantui.png" alt="Shantui">
+                    </div>
+                    <div class="brand-item" onclick="filterByBrand('hitachi')">
+                        <img src="assets/brands/hitachi.png" alt="Hitachi">
+                    </div>
+                    <div class="brand-item" onclick="filterByBrand('develon')">
+                        <img src="assets/brands/develon.png" alt="Develon">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Catálogo Multimarca ───────────────────────────────────────────── -->
+    <section id="catalogo" class="catalog-section">
+        <div class="section-header">
+            <span class="section-tag">Flota Nueva 0 Horas</span>
+            <h2 class="section-title">Catálogo Multimarca de Maquinaria</h2>
+            <p class="section-desc">
+                Selecciona la categoría o la marca de tu interés. Cada máquina cuenta con garantía de fábrica, línea hidráulica auxiliar y soporte técnico en toda Colombia.
+            </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-controls">
+            <div class="category-tabs">
+                <button class="tab-btn active" onclick="filterCategory('all')">Todos los Equipos</button>
+                <button class="tab-btn" onclick="filterCategory('excavadoras')">Excavadoras de Orugas</button>
+                <button class="tab-btn" onclick="filterCategory('retroexcavadoras')">Retroexcavadoras 4x4</button>
+                <button class="tab-btn" onclick="filterCategory('bulldozers')">Bulldozers & Tractores</button>
+                <button class="tab-btn" onclick="filterCategory('cargadores')">Cargadores Frontales</button>
+                <button class="tab-btn" onclick="filterCategory('motoniveladoras')">Motoniveladoras</button>
+                <button class="tab-btn" onclick="filterCategory('minicargadores')">Minicargadores (Skid)</button>
+                <button class="tab-btn" onclick="filterCategory('especiales')">Elevación & Concreto</button>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid" id="productGrid">
+
+            <!-- 1. CATERPILLAR 420 -->
+            <div class="product-card" data-brand="caterpillar" data-category="retroexcavadoras">
+                <div class="card-img-wrapper">
+                    <span class="brand-badge">CATERPILLAR</span>
+                    <span class="condition-badge">0 HORAS</span>
+                    <img src="assets/catalog/Caterpillar Retroexcavadora Cargadora 420.webp" alt="Caterpillar 420">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-model">Caterpillar 420</h3>
+                    <div class="card-category">Retroexcavadora 4x4 de Pivote Central</div>
+                    <div class="app-highlight">
+                        <i class="fas fa-tools"></i> Esencial para remoción de escombros, zanjas y apertura de vías.
+                    </div>
+                    <div class="quick-specs-grid">
+                        <div class="spec-box"><span class="spec-label">Potencia</span><span class="spec-val">100 HP</span></div>
+                        <div class="spec-box"><span class="spec-label">Peso</span><span class="spec-val">11.000 kg</span></div>
+                        <div class="spec-box"><span class="spec-label">Profundidad</span><span class="spec-val">4.28 m</span></div>
+                    </div>
+                    <div class="card-footer-btns">
+                        <button class="btn btn-outline" onclick="openProductModal('cat-420')">
+                            <i class="fas fa-file-lines"></i> Ficha Técnica
+                        </button>
+                        <a href="https://wa.me/573174775767?text=Hola%2C%20deseo%20cotizar%20la%20Retroexcavadora%20Caterpillar%20420%20en%20M%C3%A1quinas%20Pro" target="_blank" class="btn btn-gold">
+                            <i class="fas fa-bolt"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. ZOOMLION ZE215G -->
+            <div class="product-card" data-brand="zoomlion" data-category="excavadoras">
+                <div class="card-img-wrapper">
+                    <span class="brand-badge">ZOOMLION</span>
+                    <span class="condition-badge">0 HORAS</span>
+                    <img src="assets/catalog/zoomlion_ze215g.png" alt="Zoomlion ZE215G">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-model">Zoomlion ZE215G</h3>
+                    <div class="card-category">Excavadora Hidráulica de Orugas (22 Ton)</div>
+                    <div class="app-highlight">
+                        <i class="fas fa-city"></i> Motor Cummins B6.7 y línea hidráulica para martillo demoledor.
+                    </div>
+                    <div class="quick-specs-grid">
+                        <div class="spec-box"><span class="spec-label">Potencia</span><span class="spec-val">175 HP</span></div>
+                        <div class="spec-box"><span class="spec-label">Peso</span><span class="spec-val">22.000 kg</span></div>
+                        <div class="spec-box"><span class="spec-label">Cucharón</span><span class="spec-val">1.1 m³</span></div>
+                    </div>
+                    <div class="card-footer-btns">
+                        <button class="btn btn-outline" onclick="openProductModal('zoomlion-ze215g')">
+                            <i class="fas fa-file-lines"></i> Ficha Técnica
+                        </button>
+                        <a href="https://wa.me/573174775767?text=Hola%2C%20deseo%20cotizar%20la%20Excavadora%20Zoomlion%20ZE215G%20en%20M%C3%A1quinas%20Pro" target="_blank" class="btn btn-gold">
+                            <i class="fas fa-bolt"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. SHANTUI DH17 -->
+            <div class="product-card" data-brand="shantui" data-category="bulldozers">
+                <div class="card-img-wrapper">
+                    <span class="brand-badge">SHANTUI</span>
+                    <span class="condition-badge">0 HORAS</span>
+                    <img src="assets/catalog/shantui_dh17.png" alt="Shantui DH17">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-model">Shantui DH17-B3</h3>
+                    <div class="card-category">Bulldozer Hidrostático de Orugas (18 Ton)</div>
+                    <div class="app-highlight">
+                        <i class="fas fa-mountain"></i> Empuje masivo de tierra, despeje de derrumbes y nivelación.
+                    </div>
+                    <div class="quick-specs-grid">
+                        <div class="spec-box"><span class="spec-label">Potencia</span><span class="spec-val">190 HP</span></div>
+                        <div class="spec-box"><span class="spec-label">Peso</span><span class="spec-val">18.500 kg</span></div>
+                        <div class="spec-box"><span class="spec-label">Hoja Topad.</span><span class="spec-val">4.5 m³</span></div>
+                    </div>
+                    <div class="card-footer-btns">
+                        <button class="btn btn-outline" onclick="openProductModal('shantui-dh17')">
+                            <i class="fas fa-file-lines"></i> Ficha Técnica
+                        </button>
+                        <a href="https://wa.me/573174775767?text=Hola%2C%20deseo%20cotizar%20el%20Bulldozer%20Shantui%20DH17%20en%20M%C3%A1quinas%20Pro" target="_blank" class="btn btn-gold">
+                            <i class="fas fa-bolt"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. CASE 580N -->
+            <div class="product-card" data-brand="case" data-category="retroexcavadoras">
+                <div class="card-img-wrapper">
+                    <span class="brand-badge">CASE</span>
+                    <span class="condition-badge">0 HORAS</span>
+                    <img src="assets/catalog/case_580n.jpg" alt="CASE 580N">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-model">CASE 580N</h3>
+                    <div class="card-category">Retroexcavadora Cargadora 4x4 Heavy Duty</div>
+                    <div class="app-highlight">
+                        <i class="fas fa-hammer"></i> Sistema hidráulico PowerBoost y brazo extensible ProControl.
+                    </div>
+                    <div class="quick-specs-grid">
+                        <div class="spec-box"><span class="spec-label">Potencia</span><span class="spec-val">97 HP</span></div>
+                        <div class="spec-box"><span class="spec-label">Peso</span><span class="spec-val">8.500 kg</span></div>
+                        <div class="spec-box"><span class="spec-label">Profundidad</span><span class="spec-val">4.40 m</span></div>
+                    </div>
+                    <div class="card-footer-btns">
+                        <button class="btn btn-outline" onclick="openProductModal('case-580n')">
+                            <i class="fas fa-file-lines"></i> Ficha Técnica
+                        </button>
+                        <a href="https://wa.me/573174775767?text=Hola%2C%20deseo%20cotizar%20la%20Retroexcavadora%20CASE%20580N%20en%20M%C3%A1quinas%20Pro" target="_blank" class="btn btn-gold">
+                            <i class="fas fa-bolt"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. HD HYUNDAI HX220S -->
+            <div class="product-card" data-brand="hyundai" data-category="excavadoras">
+                <div class="card-img-wrapper">
+                    <span class="brand-badge">HD HYUNDAI</span>
+                    <span class="condition-badge">0 HORAS</span>
+                    <img src="assets/catalog/hyundai_hx220s.jpg" alt="HD Hyundai HX220S">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-model">HD Hyundai HX220S</h3>
+                    <div class="card-category">Excavadora Hidráulica de Orugas (22 Ton)</div>
+                    <div class="app-highlight">
+                        <i class="fas fa-shield"></i> Máxima durabilidad de chasis, cabina climatizada y alta eficiencia.
+                    </div>
+                    <div class="quick-specs-grid">
+                        <div class="spec-box"><span class="spec-label">Potencia</span><span class="spec-val">150 HP</span></div>
+                        <div class="spec-box"><span class="spec-label">Peso</span><span class="spec-val">22.100 kg</span></div>
+                        <div class="spec-box"><span class="spec-label">Cucharón</span><span class="spec-val">1.2 m³</span></div>
+                    </div>
+                    <div class="card-footer-btns">
+                        <button class="btn btn-outline" onclick="openProductModal('hyundai-hx220s')">
+                            <i class="fas fa-file-lines"></i> Ficha Técnica
+                        </button>
+                        <a href="https://wa.me/573174775767?text=Hola%2C%20deseo%20cotizar%20la%20Excavadora%20HD%20Hyundai%20HX220S%20en%20M%C3%A1quinas%20Pro" target="_blank" class="btn btn-gold">
+                            <i class="fas fa-bolt"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. VOLVO EC210D -->
+            <div class="product-card" data-brand="volvo" data-category="excavadoras">
+                <div class="card-img-wrapper">
+                    <span class="brand-badge">VOLVO</span>
+                    <span class="condition-badge">0 HORAS</span>
+                    <img src="assets/catalog/volvo_ec210.jpg" alt="Volvo EC210D">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-model">Volvo EC210D</h3>
+                    <div class="card-category">Excavadora de Orugas para Alto Rendimiento</div>
+                    <div class="app-highlight">
+                        <i class="fas fa-gas-pump"></i> Consumo óptimo de combustible con motor Volvo D5 y modo ECO.
+                    </div>
+                    <div class="quick-specs-grid">
+                        <div class="spec-box"><span class="spec-label">Potencia</span><span class="spec-val">168 HP</span></div>
+                        <div class="spec-box"><span class="spec-label">Peso</span><span class="spec-val">21.500 kg</span></div>
+                        <div class="spec-box"><span class="spec-label">Cucharón</span><span class="spec-val">1.1 m³</span></div>
+                    </div>
+                    <div class="card-footer-btns">
+                        <button class="btn btn-outline" onclick="openProductModal('volvo-ec210')">
+                            <i class="fas fa-file-lines"></i> Ficha Técnica
+                        </button>
+                        <a href="https://wa.me/573174775767?text=Hola%2C%20deseo%20cotizar%20la%20Excavadora%20Volvo%20EC210D%20en%20M%C3%A1quinas%20Pro" target="_blank" class="btn btn-gold">
+                            <i class="fas fa-bolt"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. HITACHI ZX200 -->
+            <div class="product-card" data-brand="hitachi" data-category="excavadoras">
+                <div class="card-img-wrapper">
+                    <span class="brand-badge">HITACHI</span>
+                    <span class="condition-badge">0 HORAS</span>
+                    <img src="assets/catalog/hitachi_zx200.png" alt="Hitachi ZX200-5G">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-model">Hitachi ZX200-5G</h3>
+                    <div class="card-category">Excavadora Hidráulica Japonesa Zaxis</div>
+                    <div class="app-highlight">
+                        <i class="fas fa-gears"></i> Precisión hidráulica líder mundial y tren de rodaje reforzado.
+                    </div>
+                    <div class="quick-specs-grid">
+                        <div class="spec-box"><span class="spec-label">Potencia</span><span class="spec-val">170 HP</span></div>
+                        <div class="spec-box"><span class="spec-label">Peso</span><span class="spec-val">20.800 kg</span></div>
+                        <div class="spec-box"><span class="spec-label">Cucharón</span><span class="spec-val">1.0 m³</span></div>
+                    </div>
+                    <div class="card-footer-btns">
+                        <button class="btn btn-outline" onclick="openProductModal('hitachi-zx200')">
+                            <i class="fas fa-file-lines"></i> Ficha Técnica
+                        </button>
+                        <a href="https://wa.me/573174775767?text=Hola%2C%20deseo%20cotizar%20la%20Excavadora%20Hitachi%20ZX200%20en%20M%C3%A1quinas%20Pro" target="_blank" class="btn btn-gold">
+                            <i class="fas fa-bolt"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. DEVELON DX225 -->
+            <div class="product-card" data-brand="develon" data-category="excavadoras">
+                <div class="card-img-wrapper">
+                    <span class="brand-badge">DEVELON</span>
+                    <span class="condition-badge">0 HORAS</span>
+                    <img src="assets/catalog/develon_dx225.jpg" alt="Develon DX225LCA">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-model">Develon DX225LCA-7M</h3>
+                    <div class="card-category">Excavadora de Orugas Heavy Duty</div>
+                    <div class="app-highlight">
+                        <i class="fas fa-truck-monster"></i> Alto torque y fuerza de desprendimiento en ciclo rápido.
+                    </div>
+                    <div class="quick-specs-grid">
+                        <div class="spec-box"><span class="spec-label">Potencia</span><span class="spec-val">155 HP</span></div>
+                        <div class="spec-box"><span class="spec-label">Peso</span><span class="spec-val">21.800 kg</span></div>
+                        <div class="spec-box"><span class="spec-label">Cucharón</span><span class="spec-val">1.1 m³</span></div>
+                    </div>
+                    <div class="card-footer-btns">
+                        <button class="btn btn-outline" onclick="openProductModal('develon-dx225')">
+                            <i class="fas fa-file-lines"></i> Ficha Técnica
+                        </button>
+                        <a href="https://wa.me/573174775767?text=Hola%2C%20deseo%20cotizar%20la%20Excavadora%20Develon%20DX225%20en%20M%C3%A1quinas%20Pro" target="_blank" class="btn btn-gold">
+                            <i class="fas fa-bolt"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. CATERPILLAR 255 (Compact Track Loader) -->
+            <div class="product-card" data-brand="caterpillar" data-category="minicargadores">
+                <div class="card-img-wrapper">
+                    <span class="brand-badge">CATERPILLAR</span>
+                    <span class="condition-badge">0 HORAS</span>
+                    <img src="assets/catalog/Caterpillar Skid 1.jpg" alt="Caterpillar 255">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-model">Caterpillar 255</h3>
+                    <div class="card-category">Minicargador de Orugas de Goma (Compact Track)</div>
+                    <div class="app-highlight">
+                        <i class="fas fa-compress"></i> Maniobrabilidad en calles estrechas y terrenos difíciles post-desastre.
+                    </div>
+                    <div class="quick-specs-grid">
+                        <div class="spec-box"><span class="spec-label">Potencia</span><span class="spec-val">74.3 HP</span></div>
+                        <div class="spec-box"><span class="spec-label">Peso</span><span class="spec-val">4.370 kg</span></div>
+                        <div class="spec-box"><span class="spec-label">Capacidad</span><span class="spec-val">1.360 kg</span></div>
+                    </div>
+                    <div class="card-footer-btns">
+                        <button class="btn btn-outline" onclick="openProductModal('cat-255')">
+                            <i class="fas fa-file-lines"></i> Ficha Técnica
+                        </button>
+                        <a href="https://wa.me/573174775767?text=Hola%2C%20deseo%20cotizar%20el%20Minicargador%20Caterpillar%20255%20en%20M%C3%A1quinas%20Pro" target="_blank" class="btn btn-gold">
+                            <i class="fas fa-bolt"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. ZOOMLION CONCRETE PUMP TRUCK -->
+            <div class="product-card" data-brand="zoomlion" data-category="especiales">
+                <div class="card-img-wrapper">
+                    <span class="brand-badge">ZOOMLION</span>
+                    <span class="condition-badge">0 HORAS</span>
+                    <img src="assets/catalog/zoomlion machinery concept 3.jpg" alt="Zoomlion Autobomba de Concreto">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-model">Zoomlion 56X-6RZ</h3>
+                    <div class="card-category">Autobomba de Concreto con Pluma (56 Metros)</div>
+                    <div class="app-highlight">
+                        <i class="fas fa-building"></i> Colado masivo de concreto para puentes, edificios y viaductos.
+                    </div>
+                    <div class="quick-specs-grid">
+                        <div class="spec-box"><span class="spec-label">Alcance</span><span class="spec-val">56 m</span></div>
+                        <div class="spec-box"><span class="spec-label">Caudal</span><span class="spec-val">180 m³/h</span></div>
+                        <div class="spec-box"><span class="spec-label">Chasis</span><span class="spec-val">Scania 8x4</span></div>
+                    </div>
+                    <div class="card-footer-btns">
+                        <button class="btn btn-outline" onclick="openProductModal('zoomlion-pump')">
+                            <i class="fas fa-file-lines"></i> Ficha Técnica
+                        </button>
+                        <a href="https://wa.me/573174775767?text=Hola%2C%20deseo%20cotizar%20la%20Autobomba%20Zoomlion%2056X%20en%20M%C3%A1quinas%20Pro" target="_blank" class="btn btn-gold">
+                            <i class="fas fa-bolt"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. ZOOMLION SCISSOR / BOOM LIFTS -->
+            <div class="product-card" data-brand="zoomlion" data-category="especiales">
+                <div class="card-img-wrapper">
+                    <span class="brand-badge">ZOOMLION</span>
+                    <span class="condition-badge">0 HORAS</span>
+                    <img src="assets/catalog/zoomlion machinery concept 2.jpg" alt="Zoomlion Plataformas de Elevación">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-model">Zoomlion ZA16J / ZS16</h3>
+                    <div class="card-category">Plataformas de Elevación Articuladas y de Tijera</div>
+                    <div class="app-highlight">
+                        <i class="fas fa-person-digging"></i> Trabajos en altura, rescate, reparación de fachadas y redes eléctricas.
+                    </div>
+                    <div class="quick-specs-grid">
+                        <div class="spec-box"><span class="spec-label">Altura Trab.</span><span class="spec-val">16 - 22 m</span></div>
+                        <div class="spec-box"><span class="spec-label">Capacidad</span><span class="spec-val">350 kg</span></div>
+                        <div class="spec-box"><span class="spec-label">Propulsión</span><span class="spec-val">4x4 / Eléctr.</span></div>
+                    </div>
+                    <div class="card-footer-btns">
+                        <button class="btn btn-outline" onclick="openProductModal('zoomlion-lift')">
+                            <i class="fas fa-file-lines"></i> Ficha Técnica
+                        </button>
+                        <a href="https://wa.me/573174775767?text=Hola%2C%20deseo%20cotizar%20Plataformas%20de%20Elevaci%C3%B3n%20Zoomlion%20en%20M%C3%A1quinas%20Pro" target="_blank" class="btn btn-gold">
+                            <i class="fas fa-bolt"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ── Sección Especial: Reconstrucción Urbana & Desastres ──────────── -->
+    <section id="reconstruccion" class="reconstruction-section">
+        <div class="reconstruction-wrapper">
+            <div>
+                <span class="section-tag">Infraestructura Crítica & Obras Públicas</span>
+                <h2 class="section-title">Soluciones de Maquinaria para Reconstrucción Urbana</h2>
+                <p class="section-desc" style="text-align:left; margin-bottom:28px;">
+                    En contextos de atención de emergencias, recuperación tras sismos o megaproyectos de renovación vial en Colombia, la velocidad y confiabilidad operativa son innegociables. <strong>MÁQUINAS PRO</strong> se posiciona como el aliado estratégico para consorcios y entidades gubernamentales, suministrando flotas de maquinaria pesada de alto rendimiento, preparadas para remoción de escombros y operación extrema 24/7.
+                </p>
+
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-truck-ramp-box"></i></div>
+                    <div class="feature-text">
+                        <h4>Despacho Inmediato de Flotas Cero Horas</h4>
+                        <p>Contamos con inventario premium a nivel nacional de excavadoras sobre orugas, retroexcavadoras, motoniveladoras y cargadores frontales para respuesta inmediata en zonas de desastre o frentes de obra.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-hammer"></i></div>
+                    <div class="feature-text">
+                        <h4>Configuración Heavy-Duty para Demolición</h4>
+                        <p>Nuestras máquinas vienen pre-equipadas de fábrica con líneas húmedas e hidráulicas auxiliares (PTO), listas para acoplar martillos percutores, cizallas trituradoras y baldes seleccionadores.</p>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-file-contract"></i></div>
+                    <div class="feature-text">
+                        <h4>Alianzas Estratégicas de Leasing y Renting</h4>
+                        <p>Modelos de financiación flexibles, renting operativo y contratos marco diseñados a la medida para licitaciones del estado, concesiones viales y grandes constructoras.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="reconstruction-img">
+                <img src="assets/catalog/zoomlion_earthmoving_machinery_company_cover.jpg" alt="Flota de Reconstrucción Multimarca">
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Interactive Modal (Gecolsa-Style Product Detail) ─────────────── -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-container">
+            <button class="modal-close-btn" onclick="closeProductModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-hero-split">
+                <div class="modal-img-col">
+                    <img id="modalImg" src="" alt="Equipo">
+                </div>
+                <div class="modal-info-col">
+                    <div class="modal-brand-tag" id="modalBrand">MARCA OFICIAL</div>
+                    <h2 class="modal-title" id="modalTitle">Modelo del Equipo</h2>
+                    <p class="modal-summary" id="modalSummary">Resumen del rendimiento y ventajas del equipo.</p>
+                    <div class="modal-ctas-group">
+                        <a id="modalWhatsappBtn" href="" target="_blank" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i> Solicitar Cotización
+                        </a>
+                        <a id="modalFullPageBtn" href="producto.html" class="btn btn-gold">
+                            <i class="fas fa-arrow-up-right-from-square"></i> Ver Ficha Completa
+                        </a>
+                        <a href="https://wa.me/573174775767?text=Hola%2C%20solicito%20la%20Ficha%20T%C3%A9cnica%20en%20PDF%20de%20este%20equipo" target="_blank" class="btn btn-outline">
+                            <i class="fas fa-download"></i> Ficha PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-details-body">
+                <h3 style="font-family:var(--font-heading); font-size:22px; margin-bottom:12px; color:var(--primary-gold);">
+                    ESPECIFICACIONES TÉCNICAS DE FÁBRICA
+                </h3>
+                <table class="modal-specs-table" id="modalSpecsTable">
+                    <!-- Dynamic Rows -->
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Footer ───────────────────────────────────────────────────────── -->
+    <footer id="contacto">
+        <div class="footer-container">
+            <div class="footer-multibrand-banner">
+                <img src="assets/brands/multibrand_strip.png" alt="HD Hyundai | Caterpillar | Volvo | Hitachi | Shantui | CASE | Zoomlion | Develon">
+            </div>
+
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <img src="assets/logo/logo-maquinas-pro.png" alt="MÁQUINAS PRO »" style="height:44px; margin-bottom:14px;">
+                    <p>
+                        Importador y Representante Especializado de Maquinaria Pesada Multimarca en Colombia. Soluciones integrales de venta, leasing, repuestos y servicio técnico garantizado.
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Marcas Representadas</h4>
+                    <ul>
+                        <li><a href="#catalogo" onclick="filterByBrand('caterpillar')">Caterpillar (CAT)</a></li>
+                        <li><a href="#catalogo" onclick="filterByBrand('zoomlion')">Zoomlion Heavy Industry</a></li>
+                        <li><a href="#catalogo" onclick="filterByBrand('hyundai')">HD Hyundai Construction</a></li>
+                        <li><a href="#catalogo" onclick="filterByBrand('volvo')">Volvo Construction</a></li>
+                        <li><a href="#catalogo" onclick="filterByBrand('case')">CASE Construction</a></li>
+                        <li><a href="#catalogo" onclick="filterByBrand('shantui')">Shantui Bulldozers</a></li>
+                        <li><a href="#catalogo" onclick="filterByBrand('hitachi')">Hitachi Zaxis</a></li>
+                        <li><a href="#catalogo" onclick="filterByBrand('develon')">Develon Heavy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Líneas de Negocio</h4>
+                    <ul>
+                        <li><a href="#catalogo">Venta de Maquinaria 0 Horas</a></li>
+                        <li><a href="#catalogo">Planes de Leasing & Financiación</a></li>
+                        <li><a href="#reconstruccion">Kits de Reconstrucción & Emergencia</a></li>
+                        <li><a href="https://wa.me/573174775767" target="_blank">Repuestos Originales Multimarca</a></li>
+                        <li><a href="https://wa.me/573174775767" target="_blank">Soporte y Taller Especializado</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Oficinas & Contacto</h4>
+                    <p><i class="fas fa-location-dot" style="color:var(--primary-gold); margin-right:8px;"></i> Av. 5ta Norte #21-22, Of. 502, Edificio Centro Versalles, Cali, Colombia</p>
+                    <p><i class="fas fa-phone" style="color:var(--primary-gold); margin-right:8px;"></i> +57 (317) 477-5767 | (314) 516-2548</p>
+                    <p><i class="fas fa-envelope" style="color:var(--primary-gold); margin-right:8px;"></i> contacto@maquinas.pro</p>
+                    <p><i class="fas fa-globe" style="color:var(--primary-gold); margin-right:8px;"></i> www.maquinas.pro</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; 2026 MÁQUINAS PRO » Todos los derechos reservados. Distribución autorizada y respaldo multimarca en territorio colombiano.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ── Interactive JavaScript ────────────────────────────────────────── -->
+    <script>
+        // Database of technical specifications for modal (Gecolsa style)
+        const machineData = {
+            'cat-420': {
+                brand: 'Caterpillar',
+                model: 'Caterpillar 420 (Next Gen)',
+                category: 'Retroexcavadora de Pivote Central 4x4',
+                img: 'assets/catalog/Caterpillar Retroexcavadora Cargadora 420.webp',
+                summary: 'La Retroexcavadora 420 Cat® ofrece potencia superior, máxima eficiencia de combustible, sistema hidráulico de centro cerrado con compensación de presión y cabina ergonómica certificada ROPS/FOPS. Indispensable en obras urbanas y remoción ágil de escombros.',
+                specs: [
+                    ['Potencia Neta ISO 9249', '100 HP (74.5 kW) @ 2,200 rpm'],
+                    ['Modelo de Motor', 'Cat® C3.6 Turbocharged con Intercooler'],
+                    ['Peso Operativo Máximo', '11.000 kg (24,250 lb)'],
+                    ['Profundidad de Excavación Estándar', '4.28 m (14 ft) - Opcional Extensible a 5.4 m'],
+                    ['Capacidad Cucharón Cargador Frontal', '0.96 m³ (1.25 yd³) Uso General / 4 en 1'],
+                    ['Tracción y Transmisión', '4x4 AWD con Servotransmisión PowerShuttle 4F/4R'],
+                    ['Caudal Hidráulico de la Bomba', '187 L/min (49 gal/min) @ 25,000 kPa'],
+                    ['Línea Hidráulica Auxiliar', 'Incluida de fábrica para martillo demoledor']
+                ]
+            },
+            'zoomlion-ze215g': {
+                brand: 'Zoomlion',
+                model: 'Zoomlion ZE215G',
+                category: 'Excavadora Hidráulica de Orugas (22 Toneladas)',
+                img: 'assets/catalog/zoomlion_ze215g.png',
+                summary: 'Excavadora pesada de 22 toneladas equipada con motor Cummins B6.7 de 175 HP y sistema hidráulico de flujo positivo Zoomlion E-COT. Diseñada para demolición severa, minería y movimiento masivo de tierra con costo por hora líder en el mercado.',
+                specs: [
+                    ['Motor Diésel', 'Cummins B6.7 de 6 Cilindros Turbo Tier 3'],
+                    ['Potencia Nominal', '175 HP (129 kW) @ 2,000 rpm'],
+                    ['Peso Operativo', '22.000 kg'],
+                    ['Capacidad de Cucharón Reforzado', '1.1 m³ HD con dientes tipo roca'],
+                    ['Profundidad Máxima de Excavación', '6.680 mm (6.68 m)'],
+                    ['Alcance Máximo a Nivel del Suelo', '9.920 mm (9.92 m)'],
+                    ['Fuerza de Excavación del Cucharón', '150 kN'],
+                    ['Caudal Hidráulico Máximo', '442 L/min (2x221 L/min)'],
+                    ['Cabina y Equipamiento', 'Certificada ROPS con A/C, pantalla táctil y cámara trasera']
+                ]
+            },
+            'shantui-dh17': {
+                brand: 'Shantui',
+                model: 'Shantui DH17-B3',
+                category: 'Bulldozer Hidrostático de Orugas (18 Toneladas)',
+                img: 'assets/catalog/shantui_dh17.png',
+                summary: 'Tractor de orugas con transmisión hidrostática continua de doble circuito Linde (Alemania). Permite giro con carga y control milimétrico de la hoja topadora en despeje de derrumbes, terraceo y apertura de carreteras en emergencias.',
+                specs: [
+                    ['Motor', 'Weichai WP7 / Cummins QSB6.7 Turbo'],
+                    ['Potencia Nominal', '190 HP (140 kW) @ 2,000 rpm'],
+                    ['Peso Operativo', '18.500 kg'],
+                    ['Tipo de Hoja Topadora', 'Semi-U / PAT (Ángulo y Tilteo Variable) de 4.5 m³'],
+                    ['Presión sobre el Suelo', '56 kPa (Baja compactación, alta tracción)'],
+                    ['Transmisión', 'Hidrostática electrónica inteligente 0 - 10 km/h continuo'],
+                    ['Ripper Trasero', 'Desgarrador de 3 dientes para roca y asfalto']
+                ]
+            },
+            'case-580n': {
+                brand: 'CASE Construction',
+                model: 'CASE 580N',
+                category: 'Retroexcavadora Cargadora 4x4 Heavy Duty',
+                img: 'assets/catalog/case_580n.jpg',
+                summary: 'El estándar de la industria en retroexcavadoras. Incorpora sistema hidráulico inteligente de centro cerrado, función PowerBoost para un 8% extra de fuerza de excavación y cabina panorámica de máxima visibilidad.',
+                specs: [
+                    ['Potencia Neta', '97 HP (72 kW)'],
+                    ['Motor', 'FPT 3.4L Turbo Diésel Common Rail'],
+                    ['Peso de Trabajo', '8.500 kg'],
+                    ['Fuerza de Desprendimiento del Cucharón', '65.2 kN'],
+                    ['Profundidad de Excavación', '4.40 m'],
+                    ['Brazo Extendahoe', 'Opcional hasta 5.50 m'],
+                    ['Transmisión', 'PowerDrive 4 velocidades sincronizadas']
+                ]
+            },
+            'hyundai-hx220s': {
+                brand: 'HD Hyundai',
+                model: 'HD Hyundai HX220S',
+                category: 'Excavadora Hidráulica de Orugas (22 Toneladas)',
+                img: 'assets/catalog/hyundai_hx220s.jpg',
+                summary: 'La serie HX de HD Hyundai combina un bastidor reforzado para trabajo pesado en cantera y un sistema de control de potencia inteligente (IPC) para máxima eficiencia energética en proyectos de gran envergadura.',
+                specs: [
+                    ['Motor', 'Hyundai / Cummins 6BTAA-5.9C'],
+                    ['Potencia Bruta', '150 HP @ 1,950 rpm'],
+                    ['Peso Operativo', '22.100 kg'],
+                    ['Capacidad Cucharón', '1.20 m³'],
+                    ['Profundidad de Excavación', '6.730 mm'],
+                    ['Fuerza de Excavación ISO', '152 kN'],
+                    ['Sistema Telemático', 'Hi MATE satelital incluido por 5 años']
+                ]
+            },
+            'volvo-ec210': {
+                brand: 'Volvo',
+                model: 'Volvo EC210D',
+                category: 'Excavadora Hidráulica de Orugas (21.5 Toneladas)',
+                img: 'assets/catalog/volvo_ec210.jpg',
+                summary: 'Diseñada con el reconocido motor Volvo D5E y un sistema hidráulico integrado de detección de carga. Ofrece un ahorro de combustible de hasta un 12% comparado con su categoría, garantizando máxima rentabilidad por metro cúbico movido.',
+                specs: [
+                    ['Motor', 'Volvo D5E de 4 cilindros Turbo con Intercooler'],
+                    ['Potencia Neta ISO 9249', '168 HP (123 kW) @ 2,000 rpm'],
+                    ['Peso Operativo', '21.500 kg'],
+                    ['Capacidad de Cucharón', '1.10 m³ GP'],
+                    ['Profundidad Máxima de Excavación', '6.730 mm'],
+                    ['Fuerza de Excavación Cucharón', '142 kN'],
+                    ['Modo de Trabajo', 'G4 con selección ECO, Potencia y Pesado']
+                ]
+            },
+            'hitachi-zx200': {
+                brand: 'Hitachi',
+                model: 'Hitachi ZX200-5G',
+                category: 'Excavadora Hidráulica Zaxis de Alto Rendimiento',
+                img: 'assets/catalog/hitachi_zx200.png',
+                summary: 'Tecnología hidráulica japonesa HIOS III que maximiza la velocidad de ciclo y la suavidad en operaciones combinadas. Su chasis reforzado en X resiste esfuerzos extremos en canteras y demolición.',
+                specs: [
+                    ['Motor', 'Isuzu CC-6BG1T Turbo Diésel Direct Injection'],
+                    ['Potencia Neta', '170 HP (125 kW) @ 2,100 rpm'],
+                    ['Peso en Orden de Trabajo', '20.800 kg'],
+                    ['Capacidad Cucharón', '1.00 m³ ISO colmado'],
+                    ['Profundidad de Excavación', '6.670 mm'],
+                    ['Fuerza de Penetración del Brazo', '110 kN']
+                ]
+            },
+            'develon-dx225': {
+                brand: 'Develon',
+                model: 'Develon DX225LCA-7M',
+                category: 'Excavadora Pesada de Orugas (22 Toneladas)',
+                img: 'assets/catalog/develon_dx225.jpg',
+                summary: 'Equipada con motor mecánico de 6 cilindros altamente tolerante a combustibles estándar en Colombia, con sistema e-EPOS de control de potencia hidráulica y cabina silenciosa con climatizador de alta capacidad.',
+                specs: [
+                    ['Motor', 'Develon DB58TIS Turbo Intercooler'],
+                    ['Potencia', '155 HP @ 1,900 rpm'],
+                    ['Peso Operativo', '21.800 kg'],
+                    ['Capacidad Cucharón', '1.08 m³'],
+                    ['Profundidad de Excavación', '6.620 mm'],
+                    ['Caudal Hidráulico', '2 x 206.5 L/min']
+                ]
+            },
+            'cat-255': {
+                brand: 'Caterpillar',
+                model: 'Caterpillar 255 (Compact Track Loader)',
+                category: 'Minicargador de Orugas de Goma de Próxima Generación',
+                img: 'assets/catalog/Caterpillar Skid 1.jpg',
+                summary: 'Minicargador de orugas de nueva plataforma rediseñada desde cero. Ofrece un 36% más de par motor y 13% más de altura de elevación vertical. Ideal para mover escombros en callejones estrechos y terrenos lodosos.',
+                specs: [
+                    ['Potencia del Motor', 'Cat® C2.8T de 74.3 HP'],
+                    ['Peso Operativo', '4.370 kg'],
+                    ['Capacidad Operativa Nominal (35% tipping load)', '1.360 kg (3,000 lb)'],
+                    ['Fuerza de Desprendimiento de Inclinación', '33.1 kN'],
+                    ['Sistema Hidráulico', 'Alto Flujo High Flow XPS (34 gpm)']
+                ]
+            },
+            'zoomlion-pump': {
+                brand: 'Zoomlion',
+                model: 'Zoomlion 56X-6RZ (Autobomba)',
+                category: 'Camión Autobomba de Concreto con Pluma de 56 Metros',
+                img: 'assets/catalog/zoomlion machinery concept 3.jpg',
+                summary: 'Unidad de bombeo de concreto montada sobre chasis pesado Scania 8x4. Pluma de 6 secciones con articulación RZ que permite acceso en túneles, edificios colapsados y puentes con mínima altura de apertura.',
+                specs: [
+                    ['Altura Vertical de la Pluma', '56 Metros'],
+                    ['Secciones de la Pluma', '6 Secciones tipo RZ'],
+                    ['Rendimiento Teórico de Bombeo', '180 m³/hora'],
+                    ['Presión Máxima sobre el Concreto', '8.5 MPa'],
+                    ['Chasis', 'Scania P380 / P410 8x4 Heavy Duty']
+                ]
+            },
+            'zoomlion-lift': {
+                brand: 'Zoomlion',
+                model: 'Zoomlion ZA16J / ZS16',
+                category: 'Plataformas Móviles de Elevación de Personal (MEWP)',
+                img: 'assets/catalog/zoomlion machinery concept 2.jpg',
+                summary: 'Equipos articulados y de tijera todoterreno para inspección estructural en altura, rescate, reconstrucción de cubiertas y reparación de redes de servicios públicos en zonas de desastre.',
+                specs: [
+                    ['Altura de Trabajo', '16.0 a 22.0 Metros'],
+                    ['Capacidad en Canastilla', '350 kg (2 Operadores + Herramientas)'],
+                    ['Tracción', '4x4 Todoterreno con Bloqueo de Diferencial'],
+                    ['Alimentación', 'Diésel Kubota / Baterías de Litio Cero Emisiones']
+                ]
+            }
+        };
+
+        // Filter by Brand
+        function filterByBrand(brand) {
+            document.querySelectorAll('.brand-item').forEach(el => el.classList.remove('active'));
+            const cards = document.querySelectorAll('.product-card');
+            
+            cards.forEach(card => {
+                if (brand === 'all' || card.dataset.brand === brand) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Filter by Category
+        function filterCategory(cat) {
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            event.target.classList.add('active');
+            const cards = document.querySelectorAll('.product-card');
+            
+            cards.forEach(card => {
+                if (cat === 'all' || card.dataset.category === cat) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Open Product Modal (Gecolsa Style)
+        function openProductModal(key) {
+            const data = machineData[key];
+            if (!data) return;
+
+            document.getElementById('modalImg').src = data.img;
+            document.getElementById('modalBrand').textContent = data.brand + ' • NUEVO 0 HORAS';
+            document.getElementById('modalTitle').textContent = data.model;
+            document.getElementById('modalSummary').textContent = data.summary;
+            document.getElementById('modalWhatsappBtn').href = `https://wa.me/573174775767?text=Hola%2C%20estoy%20interesado%20en%20cotizar%20la%20m%C3%A1quina%20${encodeURIComponent(data.model)}%20en%20M%C3%A1quinas%20Pro`;
+            document.getElementById('modalFullPageBtn').href = 'producto.html?id=' + key;
+
+            const table = document.getElementById('modalSpecsTable');
+            table.innerHTML = `
+                <tr>
+                    <th style="width:40%;">Parámetro Técnico</th>
+                    <th>Especificación Oficial</th>
+                </tr>
+            `;
+            data.specs.forEach(([label, val]) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td><strong>${label}</strong></td><td>${val}</td>`;
+                table.appendChild(tr);
+            });
+
+            document.getElementById('productModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside container
+        document.getElementById('productModal').addEventListener('click', function(e) {
+            if (e.target === this) closeProductModal();
+        });
+    </script>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
