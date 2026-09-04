@@ -161,6 +161,15 @@
         .btn-whatsapp {
             background-color: #25D366;
             color: #fff;
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
         }
 
         .btn-whatsapp:hover {
@@ -1522,6 +1531,7 @@
 
             <div class="contact-form">
                 <form action="https://formsubmit.co/contacto@maquinas.pro" method="POST">
+                    <input type="hidden" name="_cc" value="contactomaquinaspro@gmail.com">
                     <input type="hidden" name="_subject" value="Nueva Solicitud Web - MÁQUINAS PRO">
                     <input type="hidden" name="_captcha" value="false">
                     <!-- Configurar luego: <input type="hidden" name="_next" value="gracias.html"> -->
