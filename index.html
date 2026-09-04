@@ -398,15 +398,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 0;
             overflow: hidden;
         }
 
         .card-img-wrapper img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.4s ease;
+            position: relative;
+            z-index: 1;
         }
 
         .product-card:hover .card-img-wrapper img {
@@ -426,6 +428,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             border: 1px solid rgba(242, 183, 5, 0.4);
+            z-index: 10;
         }
 
         .condition-badge {
@@ -440,6 +443,7 @@
             font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            z-index: 10;
         }
 
         .card-body {
