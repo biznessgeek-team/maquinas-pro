@@ -1129,6 +1129,11 @@
             const waUrl = `https://wa.me/573174775767?text=${waMsg}`;
             document.getElementById('btnWhatsappHero').href = waUrl;
             document.getElementById('navWhatsappBtn').href = waUrl;
+
+            // PDF Button Link (Send to WA)
+            const pdfMsg = encodeURIComponent(`Hola, necesito la ficha técnica completa en PDF oficial de la ${data.model}`);
+            document.getElementById('btnFichaPdf').href = `https://wa.me/573174775767?text=${pdfMsg}`;
+            document.getElementById('navWhatsappBtn').href = waUrl;
             document.getElementById('btnFichaPdf').href = waUrl;
 
             // Update Feature Images if they exist, otherwise fallback to main image
