@@ -712,28 +712,32 @@
             align-items: center;
         }
 
-        @keyframes panImage {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        @keyframes crossfade1 {
-            0%, 30% { opacity: 1; }
-            33%, 97% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        @keyframes crossfade2 {
-            0%, 30% { opacity: 0; }
-            33%, 63% { opacity: 1; }
-            66%, 100% { opacity: 0; }
-        }
-        @keyframes crossfade3 {
-            0%, 63% { opacity: 0; }
-            66%, 97% { opacity: 1; }
-            100% { opacity: 0; }
+        @keyframes slide1 {
+            0% { opacity: 1; background-position: 9.09% 50%; }
+            30% { opacity: 1; background-position: 90.9% 50%; }
+            33.33% { opacity: 0; background-position: 100% 50%; }
+            33.34% { opacity: 0; background-position: 0% 50%; }
+            96.66% { opacity: 0; background-position: 0% 50%; }
+            96.67% { opacity: 0; background-position: 0% 50%; }
+            100% { opacity: 1; background-position: 9.09% 50%; }
         }
 
+        @keyframes slide2 {
+            0% { opacity: 0; background-position: 100% 50%; }
+            30% { opacity: 0; background-position: 100% 50%; }
+            33.33% { opacity: 1; background-position: 90.9% 50%; }
+            63.33% { opacity: 1; background-position: 9.09% 50%; }
+            66.66% { opacity: 0; background-position: 0% 50%; }
+            100% { opacity: 0; background-position: 0% 50%; }
+        }
+
+        @keyframes slide3 {
+            0% { opacity: 0; background-position: 0% 50%; }
+            63.33% { opacity: 0; background-position: 0% 50%; }
+            66.66% { opacity: 1; background-position: 9.09% 50%; }
+            96.66% { opacity: 1; background-position: 90.9% 50%; }
+            100% { opacity: 0; background-position: 100% 50%; }
+        }
         .reconstruction-img {
             position: relative;
             width: 100%;
@@ -754,19 +758,18 @@
 
         .layer-1 {
             background-image: url('assets/catalog/zoomlion_earthmoving_machinery_company_cover.jpg');
-            animation: panImage 30s ease-in-out infinite, crossfade1 90s infinite;
+            animation: slide1 45s linear infinite;
         }
 
         .layer-2 {
             background-image: url('assets/catalog/volvo_fleet_panorama.jpg');
-            animation: panImage 30s ease-in-out infinite, crossfade2 90s infinite;
+            animation: slide2 45s linear infinite;
         }
 
         .layer-3 {
             background-image: url('assets/catalog/Caterpillar-Big-Homepage-Banner-Mini-Hex.original.jpg');
-            animation: panImage 30s ease-in-out infinite, crossfade3 90s infinite;
+            animation: slide3 45s linear infinite;
         }
-
         .feature-item {
             display: flex;
             gap: 16px;
