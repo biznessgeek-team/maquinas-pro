@@ -827,17 +827,62 @@
         }
 
         .footer-multibrand-banner {
-            text-align: center;
+            width: 100%;
+            overflow: hidden;
             padding-bottom: 40px;
             margin-bottom: 40px;
             border-bottom: 1px solid var(--dark-border);
+            position: relative;
         }
 
-        .footer-multibrand-banner img {
-            max-width: 100%;
-            height: auto;
-            max-height: 50px;
+        .footer-multibrand-banner::before,
+        .footer-multibrand-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 150px;
+            height: 100%;
+            z-index: 2;
+        }
+        
+        .footer-multibrand-banner::before {
+            left: 0;
+            background: linear-gradient(to right, #0B0C0E 0%, transparent 100%);
+        }
+        
+        .footer-multibrand-banner::after {
+            right: 0;
+            background: linear-gradient(to left, #0B0C0E 0%, transparent 100%);
+        }
+
+        .brand-carousel-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            animation: scrollCarousel 30s linear infinite;
+        }
+
+        .brand-carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        .brand-carousel-track img {
+            height: 40px;
+            margin: 0 40px;
             object-fit: contain;
+            filter: grayscale(100%) opacity(0.5);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .brand-carousel-track img:hover {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.05);
+        }
+
+        @keyframes scrollCarousel {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         .footer-cols {
@@ -1586,7 +1631,26 @@
     <footer id="contacto">
         <div class="footer-container">
             <div class="footer-multibrand-banner">
-                <img src="assets/brands/multibrand_strip.png" alt="HD Hyundai | Caterpillar | Volvo | Hitachi | Shantui | CASE | Zoomlion | Develon">
+                <div class="brand-carousel-track">
+                    <!-- Primera Serie -->
+                    <img src="assets/brands/zoomlion.png" alt="Zoomlion">
+                    <img src="assets/brands/caterpillar.png" alt="Caterpillar">
+                    <img src="assets/brands/volvo.png" alt="Volvo">
+                    <img src="assets/brands/hd-hyundai.png" alt="HD Hyundai">
+                    <img src="assets/brands/case.png" alt="CASE">
+                    <img src="assets/brands/shantui.png" alt="Shantui">
+                    <img src="assets/brands/hitachi.png" alt="Hitachi">
+                    <img src="assets/brands/develon.png" alt="Develon">
+                    <!-- Segunda Serie (Clonada para Loop Infinito) -->
+                    <img src="assets/brands/zoomlion.png" alt="Zoomlion">
+                    <img src="assets/brands/caterpillar.png" alt="Caterpillar">
+                    <img src="assets/brands/volvo.png" alt="Volvo">
+                    <img src="assets/brands/hd-hyundai.png" alt="HD Hyundai">
+                    <img src="assets/brands/case.png" alt="CASE">
+                    <img src="assets/brands/shantui.png" alt="Shantui">
+                    <img src="assets/brands/hitachi.png" alt="Hitachi">
+                    <img src="assets/brands/develon.png" alt="Develon">
+                </div>
             </div>
 
             <div class="footer-cols">

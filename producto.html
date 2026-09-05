@@ -542,6 +542,56 @@
             .quote-form-grid { grid-template-columns: 1fr; }
             .form-group.full-width { grid-column: span 1; }
         }
+    
+        .footer-multibrand-banner {
+            width: 100%;
+            overflow: hidden;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+        .footer-multibrand-banner::before,
+        .footer-multibrand-banner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+        }
+        .footer-multibrand-banner::before {
+            left: 0;
+            background: linear-gradient(to right, #0B0C0E 0%, transparent 100%);
+        }
+        .footer-multibrand-banner::after {
+            right: 0;
+            background: linear-gradient(to left, #0B0C0E 0%, transparent 100%);
+        }
+        .brand-carousel-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            animation: scrollCarousel 30s linear infinite;
+        }
+        .brand-carousel-track:hover { animation-play-state: paused; }
+        .brand-carousel-track img {
+            height: 35px;
+            margin: 0 30px;
+            object-fit: contain;
+            filter: grayscale(100%) opacity(0.5);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .brand-carousel-track img:hover {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.05);
+        }
+        @keyframes scrollCarousel {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
     </style>
 </head>
 <body>
@@ -754,7 +804,28 @@
 
     <!-- ── Footer ───────────────────────────────────────────────────────── -->
     <footer>
-        <img src="assets/brands/multibrand_strip.png" alt="Marcas Representadas">
+        <div class="footer-multibrand-banner">
+            <div class="brand-carousel-track">
+                <!-- Primera Serie -->
+                    <img src="assets/brands/zoomlion.png" alt="Zoomlion">
+                    <img src="assets/brands/caterpillar.png" alt="Caterpillar">
+                    <img src="assets/brands/volvo.png" alt="Volvo">
+                    <img src="assets/brands/hd-hyundai.png" alt="HD Hyundai">
+                    <img src="assets/brands/case.png" alt="CASE">
+                    <img src="assets/brands/shantui.png" alt="Shantui">
+                    <img src="assets/brands/hitachi.png" alt="Hitachi">
+                    <img src="assets/brands/develon.png" alt="Develon">
+                <!-- Segunda Serie (Clonada para Loop Infinito) -->
+                    <img src="assets/brands/zoomlion.png" alt="Zoomlion">
+                    <img src="assets/brands/caterpillar.png" alt="Caterpillar">
+                    <img src="assets/brands/volvo.png" alt="Volvo">
+                    <img src="assets/brands/hd-hyundai.png" alt="HD Hyundai">
+                    <img src="assets/brands/case.png" alt="CASE">
+                    <img src="assets/brands/shantui.png" alt="Shantui">
+                    <img src="assets/brands/hitachi.png" alt="Hitachi">
+                    <img src="assets/brands/develon.png" alt="Develon">
+            </div>
+        </div>
         <p>&copy; 2026 MÁQUINAS PRO » Todos los derechos reservados. Cali, Colombia.</p>
     </footer>
 
