@@ -1112,20 +1112,50 @@
 
         <!-- Filter Tabs -->
         <div class="filter-controls">
-            <div class="category-tabs">
-                <button class="tab-btn active" onclick="filterCategory('all')">Todos los Equipos</button>
-                <button class="tab-btn" onclick="filterCategory('excavadoras')">Excavadoras de Orugas</button>
-                <button class="tab-btn" onclick="filterCategory('retroexcavadoras')">Retroexcavadoras 4x4</button>
-                <button class="tab-btn" onclick="filterCategory('bulldozers')">Bulldozers & Tractores</button>
-                <button class="tab-btn" onclick="filterCategory('cargadores')">Cargadores Frontales</button>
-                <button class="tab-btn" onclick="filterCategory('motoniveladoras')">Motoniveladoras</button>
-                <button class="tab-btn" onclick="filterCategory('minicargadores')">Minicargadores (Skid)</button>
-                <button class="tab-btn" onclick="filterCategory('especiales')">Elevación & Concreto</button>
+            
+            <!-- drill down grid -->
+            <div id="families-view" class="families-grid">
+                <div class="family-card" onclick="showFamily('excavacion', 'Excavación y Carga')">
+                    <img src="assets/catalog/rhino_loader_action.jpg" alt="Excavación y Carga">
+                    <div class="family-card-overlay">
+                        <h3 class="family-card-title">Excavación & Carga</h3>
+                        <i class="fas fa-truck-loading family-card-icon"></i>
+                    </div>
+                </div>
+                <div class="family-card" onclick="showFamily('tierra', 'Movimiento de Tierra')">
+                    <img src="assets/catalog/rhino_bulldozer_action.jpg" alt="Movimiento de Tierra">
+                    <div class="family-card-overlay">
+                        <h3 class="family-card-title">Mov. de Tierra</h3>
+                        <i class="fas fa-mountain family-card-icon"></i>
+                    </div>
+                </div>
+                <div class="family-card" onclick="showFamily('compactacion', 'Asfalto y Compactación')">
+                    <img src="assets/catalog/rhino_rex330_action.jpg" alt="Compactación">
+                    <div class="family-card-overlay">
+                        <h3 class="family-card-title">Compactación</h3>
+                        <i class="fas fa-road family-card-icon"></i>
+                    </div>
+                </div>
+                <div class="family-card" onclick="showFamily('especiales', 'Equipos Especiales')">
+                    <img src="assets/catalog/rhino_backhoe_action.jpg" alt="Equipos Especiales">
+                    <div class="family-card-overlay">
+                        <h3 class="family-card-title">Especializados</h3>
+                        <i class="fas fa-tools family-card-icon"></i>
+                    </div>
+                </div>
             </div>
+
+            <!-- Header for active family -->
+            <div id="active-family-header" class="active-family-header" style="display: none;">
+                <h2 class="active-family-title" id="activeFamilyTitle">Mostrando: ...</h2>
+                <button class="btn-back" onclick="goBackToFamilies()"><i class="fas fa-arrow-left"></i> Volver al Catálogo</button>
+            </div>
+
         </div>
 
-        <!-- Product Grid -->
-        <div class="product-grid" id="productGrid">
+        <!-- Product Grid (Hidden Initially) -->
+
+        <div class="product-grid" id="productGrid" style="display: none;">
 
             <!-- 1. CATERPILLAR 420 -->
             <div class="product-card" data-brand="caterpillar" data-category="retroexcavadoras">
@@ -15243,13 +15273,77 @@
             }
         };
 
-        // Filter by Brand
-        function filterByBrand(brand) {
+        
+        
+        const familyMappings = {
+            'excavacion': ['excavadoras', 'retroexcavadoras', 'minicargadores', 'cargadores de ruedas', 'cargadores de orugas', 'excavadoras de ruedas'],
+            'tierra': ['bulldozers', 'dozers de ruedas', 'motoniveladoras', 'camiones articulados'],
+            'compactacion': ['vibrocompactadores', 'compactadores de suelos', 'compactadores tandem', 'compactadores neumáticos', 'asfaltadoras', 'perfiladoras'],
+            'especiales': ['tiendetubos', 'torres de luz', 'grúas de orugas', 'martillos hidráulicos']
+        };
+
+        let currentFamily = null;
+
+        function showFamily(familyId, familyTitle) {
+            currentFamily = familyId;
+            document.getElementById('families-view').style.display = 'none';
+            document.getElementById('active-family-header').style.display = 'flex';
+            document.getElementById('activeFamilyTitle').textContent = 'Mostrando: ' + familyTitle;
+            document.getElementById('productGrid').style.display = 'grid';
+            
+            // Re-apply filters including brand
+            applyFilters();
+        }
+
+        function goBackToFamilies() {
+            currentFamily = null;
+            document.getElementById('families-view').style.display = 'grid';
+            document.getElementById('active-family-header').style.display = 'none';
+            document.getElementById('productGrid').style.display = 'none';
+            
+            // Reset brand filter to ALL when going back to catalog root
             document.querySelectorAll('.brand-item').forEach(el => el.classList.remove('active'));
+            document.querySelector('.brand-item[onclick="filterByBrand(\'all\')"]').classList.add('active');
+            currentBrand = 'all';
+        }
+
+        function filterByBrand(brand) {
+            currentBrand = brand;
+            document.querySelectorAll('.brand-item').forEach(el => el.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+            
+            // If we are currently viewing families, optionally we could jump into the grid? 
+            // Better UX: Show grid of ALL families if a specific brand is clicked from root.
+            if (!currentFamily && brand !== 'all') {
+                document.getElementById('families-view').style.display = 'none';
+                document.getElementById('active-family-header').style.display = 'flex';
+                document.getElementById('activeFamilyTitle').textContent = 'Resultados de Marca: ' + brand.toUpperCase();
+                document.getElementById('productGrid').style.display = 'grid';
+            } else if (!currentFamily && brand === 'all') {
+                // Already handled in goBackToFamilies, but just in case
+            }
+            
+            applyFilters();
+        }
+
+        function applyFilters() {
             const cards = document.querySelectorAll('.product-card');
             
             cards.forEach(card => {
-                if (brand === 'all' || card.dataset.brand === brand) {
+                const cardCat = card.dataset.category ? card.dataset.category.toLowerCase() : '';
+                const cardBrand = card.dataset.brand ? card.dataset.brand.toLowerCase() : '';
+                
+                // 1. Check Family
+                let matchesFamily = true;
+                if (currentFamily) {
+                    const allowedCats = familyMappings[currentFamily];
+                    matchesFamily = allowedCats.includes(cardCat);
+                }
+                
+                // 2. Check Brand
+                let matchesBrand = (currentBrand === 'all' || cardBrand === currentBrand);
+                
+                if (matchesFamily && matchesBrand) {
                     card.style.display = 'flex';
                 } else {
                     card.style.display = 'none';
@@ -15257,20 +15351,6 @@
             });
         }
 
-        // Filter by Category
-        function filterCategory(cat) {
-            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            event.target.classList.add('active');
-            const cards = document.querySelectorAll('.product-card');
-            
-            cards.forEach(card => {
-                if (cat === 'all' || card.dataset.category === cat) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
 
         // Open Product Modal (Gecolsa Style)
         function openProductModal(key) {
