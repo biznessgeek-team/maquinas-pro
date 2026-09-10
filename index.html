@@ -1278,6 +1278,138 @@
             pointer-events: auto;
         }
 
+    
+        /* ════════════════════════════════════════════════════════════════════
+           FILTROS COMBINADOS: TIPO DE MÁQUINA + MARCA + BUSCADOR
+           ════════════════════════════════════════════════════════════════════ */
+        .filters-dual-row {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 26px;
+            padding-bottom: 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 20px;
+        }
+        @media (max-width: 1024px) {
+            .filters-dual-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        .filter-column {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .brand-filter-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+        .brand-chip {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            padding: 6px 14px;
+            height: 38px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .brand-chip:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .brand-chip.active {
+            background: rgba(245, 166, 35, 0.18);
+            border-color: var(--primary-yellow, #f5a623);
+            box-shadow: 0 2px 10px rgba(245, 166, 35, 0.25);
+        }
+        .brand-chip img {
+            max-height: 20px;
+            max-width: 75px;
+            object-fit: contain;
+            filter: brightness(0.95);
+        }
+        .brand-chip span {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+        .brand-chip.active span {
+            color: var(--primary-yellow, #f5a623);
+        }
+
+        /* Buscador en Catálogo */
+        .catalog-search-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 4px;
+        }
+        .catalog-search-box {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        .catalog-search-icon {
+            position: absolute;
+            left: 16px;
+            color: var(--primary-yellow, #f5a623);
+            font-size: 1.05rem;
+            pointer-events: none;
+        }
+        #catalogSearchInput {
+            width: 100%;
+            background: rgba(10, 11, 14, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 13px 44px 13px 46px;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
+        }
+        #catalogSearchInput:focus {
+            border-color: var(--primary-yellow, #f5a623);
+            box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.2);
+            background: rgba(15, 16, 20, 0.98);
+        }
+        #catalogSearchInput::placeholder {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        .catalog-search-clear {
+            position: absolute;
+            right: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .catalog-search-clear:hover {
+            background: rgba(255, 255, 255, 0.25);
+            color: #fff;
+        }
+        .search-helper-text {
+            color: #64748b;
+            font-size: 0.82rem;
+            padding-left: 6px;
+        }
+
     </style>
 </head>
 <body>
@@ -1342,47 +1474,7 @@
             </p>
         </div>
 
-                <!-- Cuadro de Marcas (Filtro Rápido) -->
-        <div class="catalog-brand-wrapper">
-            <!-- Brand Filter Strip -->
-            <div class="brand-bar" id="catalog-brand-bar">
-                <div class="brand-bar-title">Filtrar Flota por Marca Oficial:</div>
-                <div class="brand-logos-flex">
-                    <div class="brand-item" onclick="filterByBrand('zoomlion')">
-                        <img src="assets/brands/zoomlion.png" alt="Zoomlion">
-                    </div>
-                    <div class="brand-item" onclick="filterByBrand('caterpillar')">
-                        <img src="assets/brands/caterpillar.png" alt="Caterpillar">
-                    </div>
-                    <div class="brand-item" onclick="filterByBrand('hyundai')">
-                        <img src="assets/brands/hd-hyundai.png" alt="HD Hyundai">
-                    </div>
-                    <div class="brand-item" onclick="filterByBrand('case')">
-                        <img src="assets/brands/case.png" alt="CASE">
-                    </div>
-                    <div class="brand-item" onclick="filterByBrand('shantui')">
-                        <img src="assets/brands/shantui.png" alt="Shantui">
-                    </div>
-                    <div class="brand-item" onclick="filterByBrand('hitachi')">
-                        <img src="assets/brands/hitachi.png" alt="Hitachi">
-                    </div>
-                    <div class="brand-item" onclick="filterByBrand('develon')">
-                        <img src="assets/brands/develon.png" alt="Develon">
-                    </div>
-                    <div class="brand-item" onclick="filterByBrand('volvo')">
-                        <img src="assets/brands/volvo.svg" alt="Volvo">
-                    </div>
-                    <div class="brand-item" onclick="filterByBrand('rhino')">
-                        <img src="assets/brands/rhino.png" alt="Rhino">
-                    </div>
-                    <div class="brand-item active" onclick="filterByBrand('all')" style="padding: 10px 20px;">
-                        <span style="font-size:15px; font-weight:800; color:#fff; letter-spacing: 0.5px;">TODAS</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 1. VISTA INICIAL: GRANDES FAMILIAS / SECTORES -->
+                <!-- 1. VISTA INICIAL: GRANDES FAMILIAS / SECTORES -->
         <div id="sectors-view" class="sectors-grid">
             
             <!-- SECTOR 1: CONSTRUCCIÓN -->
@@ -1423,9 +1515,10 @@
 
         </div>
 
-        <!-- 2. VISTA DETALLADA: SECTOR ACTIVO CON SUB-CLASIFICACIÓN -->
+        <!-- 2. VISTA DETALLADA: SECTOR ACTIVO CON DOBLE FILTRO Y BUSCADOR -->
         <div id="active-sector-view" style="display: none;">
             <div class="active-sector-header">
+                <!-- Topbar: Título y Volver -->
                 <div class="active-sector-topbar">
                     <div class="active-sector-title-group">
                         <span class="active-sector-icon" id="activeSectorIcon">🏗️</span>
@@ -1439,13 +1532,75 @@
                     </button>
                 </div>
 
-                <!-- Sub-clasificación: Pills de Tipos de Máquina -->
-                <div class="subtypes-intro">
-                    <i class="fas fa-layer-group"></i> Sub-clasificación por Tipo de Máquina:
+                <!-- 2 Columnas de Filtro: Tipo de Máquina (Izq) + Marca (Der) -->
+                <div class="filters-dual-row">
+                    <!-- Columna Izquierda: Tipos de Máquina -->
+                    <div class="filter-column">
+                        <div class="subtypes-intro">
+                            <i class="fas fa-layer-group"></i> 1. Filtrar por Tipo de Máquina:
+                        </div>
+                        <div class="subtypes-pills-bar" id="subtypesPillsBar">
+                            <!-- Inyectado dinámicamente con JS -->
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Marcas Oficiales -->
+                    <div class="filter-column">
+                        <div class="subtypes-intro">
+                            <i class="fas fa-trademark"></i> 2. Filtrar por Marca Oficial:
+                        </div>
+                        <div class="brand-filter-grid" id="brandFilterGrid">
+                            <div class="brand-chip active" data-brand="all" onclick="filterByBrand('all')">
+                                <span style="font-weight:800; letter-spacing:0.5px;">TODAS</span>
+                            </div>
+                            <div class="brand-chip" data-brand="rhino" onclick="filterByBrand('rhino')">
+                                <img src="assets/brands/rhino.png" alt="Rhino">
+                            </div>
+                            <div class="brand-chip" data-brand="caterpillar" onclick="filterByBrand('caterpillar')">
+                                <img src="assets/brands/caterpillar.png" alt="Caterpillar">
+                            </div>
+                            <div class="brand-chip" data-brand="zoomlion" onclick="filterByBrand('zoomlion')">
+                                <img src="assets/brands/zoomlion.png" alt="Zoomlion">
+                            </div>
+                            <div class="brand-chip" data-brand="hyundai" onclick="filterByBrand('hyundai')">
+                                <img src="assets/brands/hd-hyundai.png" alt="HD Hyundai">
+                            </div>
+                            <div class="brand-chip" data-brand="volvo" onclick="filterByBrand('volvo')">
+                                <img src="assets/brands/volvo.svg" alt="Volvo">
+                            </div>
+                            <div class="brand-chip" data-brand="case" onclick="filterByBrand('case')">
+                                <img src="assets/brands/case.png" alt="CASE">
+                            </div>
+                            <div class="brand-chip" data-brand="shantui" onclick="filterByBrand('shantui')">
+                                <img src="assets/brands/shantui.png" alt="Shantui">
+                            </div>
+                            <div class="brand-chip" data-brand="hitachi" onclick="filterByBrand('hitachi')">
+                                <img src="assets/brands/hitachi.png" alt="Hitachi">
+                            </div>
+                            <div class="brand-chip" data-brand="develon" onclick="filterByBrand('develon')">
+                                <img src="assets/brands/develon.png" alt="Develon">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="subtypes-pills-bar" id="subtypesPillsBar">
-                    <!-- Se inyecta dinámicamente con JS con conteos reales -->
+
+                <!-- Buscador por Palabra Clave (Debajo de los filtros) -->
+                <div class="catalog-search-container">
+                    <div class="catalog-search-box">
+                        <i class="fas fa-search catalog-search-icon"></i>
+                        <input type="text" id="catalogSearchInput" 
+                               placeholder="🔍 Buscar por palabra clave: modelo (ej: REX330, 420), motor (Cummins, Yanmar), tonelaje, potencia..." 
+                               oninput="onSearchInput(this.value)" 
+                               autocomplete="off">
+                        <button class="catalog-search-clear" id="searchClearBtn" onclick="clearCatalogSearch()" style="display: none;" title="Limpiar búsqueda">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="search-helper-text" id="searchHelperText">
+                        Puedes combinar el Tipo de Máquina + Marca + Palabra clave para encontrar exactamente el equipo que necesitas.
+                    </div>
                 </div>
+
             </div>
         </div>
 
@@ -10387,11 +10542,12 @@
         };
 
         // ════════════════════════════════════════════════════════════════════
-        // SISTEMA DE FILTRADO JERÁRQUICO POR SECTOR Y SUB-CLASIFICACIÓN
+        // SISTEMA DE FILTRADO JERÁRQUICO COMBINADO: SECTOR + TIPO + MARCA + BUSCADOR
         // ════════════════════════════════════════════════════════════════════
         let currentBrand = 'all';
         let currentSector = null;
         let currentSubtype = 'all';
+        let currentSearchQuery = '';
 
         const sectorData = {
             'construccion': {
@@ -10439,6 +10595,9 @@
             }
             currentSector = sectorId;
             currentSubtype = defaultSubtype;
+            currentBrand = 'all';
+            currentSearchQuery = '';
+
             const sector = sectorData[sectorId];
             if (!sector) return;
 
@@ -10447,6 +10606,17 @@
             document.getElementById('activeSectorIcon').textContent = sector.icon;
             document.getElementById('activeSectorTitle').textContent = sector.title;
             document.getElementById('productGrid').style.display = 'grid';
+
+            // Reset brand chips
+            document.querySelectorAll('.brand-chip').forEach(el => el.classList.remove('active'));
+            const allChip = document.querySelector('.brand-chip[data-brand="all"]');
+            if (allChip) allChip.classList.add('active');
+
+            // Reset search input
+            const searchInput = document.getElementById('catalogSearchInput');
+            if (searchInput) searchInput.value = '';
+            const clearBtn = document.getElementById('searchClearBtn');
+            if (clearBtn) clearBtn.style.display = 'none';
 
             buildSubtypePills(sector);
             applyCatalogFilter();
@@ -10494,35 +10664,47 @@
             applyCatalogFilter();
         }
 
+        function filterByBrand(brand) {
+            currentBrand = brand;
+            document.querySelectorAll('.brand-chip').forEach(el => el.classList.remove('active'));
+            const activeChip = document.querySelector(`.brand-chip[data-brand="${brand}"]`);
+            if (activeChip) activeChip.classList.add('active');
+
+            if (currentSector) {
+                buildSubtypePills(sectorData[currentSector]);
+            }
+            applyCatalogFilter();
+        }
+
+        function onSearchInput(val) {
+            currentSearchQuery = val.trim().toLowerCase();
+            const clearBtn = document.getElementById('searchClearBtn');
+            if (clearBtn) {
+                clearBtn.style.display = currentSearchQuery.length > 0 ? 'flex' : 'none';
+            }
+            applyCatalogFilter();
+        }
+
+        function clearCatalogSearch() {
+            const input = document.getElementById('catalogSearchInput');
+            if (input) input.value = '';
+            currentSearchQuery = '';
+            const clearBtn = document.getElementById('searchClearBtn');
+            if (clearBtn) clearBtn.style.display = 'none';
+            applyCatalogFilter();
+        }
+
         function goBackToSectors() {
             currentSector = null;
             currentSubtype = 'all';
+            currentBrand = 'all';
+            currentSearchQuery = '';
             document.getElementById('sectors-view').style.display = 'grid';
             document.getElementById('active-sector-view').style.display = 'none';
             document.getElementById('productGrid').style.display = 'none';
 
-            document.querySelectorAll('.brand-item').forEach(el => el.classList.remove('active'));
-            const allBrandBtn = document.querySelector('.brand-item[onclick*="all"]');
-            if (allBrandBtn) allBrandBtn.classList.add('active');
-            currentBrand = 'all';
-
             const catEl = document.getElementById('catalogo');
             if (catEl) catEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        function filterByBrand(brand) {
-            currentBrand = brand;
-            document.querySelectorAll('.brand-item').forEach(el => el.classList.remove('active'));
-            if (window.event && window.event.currentTarget) {
-                window.event.currentTarget.classList.add('active');
-            }
-
-            if (!currentSector) {
-                selectSector('construccion');
-            } else {
-                buildSubtypePills(sectorData[currentSector]);
-                applyCatalogFilter();
-            }
         }
 
         function applyCatalogFilter() {
@@ -10547,8 +10729,26 @@
 
                 const matchesCat = allowedCats.includes(cardCat);
                 const matchesBrand = (currentBrand === 'all' || cardBrand === currentBrand);
+                
+                // Búsqueda inteligente por texto en tarjeta y ficha técnica completa
+                let matchesSearch = true;
+                if (currentSearchQuery) {
+                    const cardText = card.textContent.toLowerCase();
+                    matchesSearch = cardText.includes(currentSearchQuery);
+                    
+                    // Si no coincide en la carátula, buscar a fondo en machineData (motor, caudal, specs)
+                    if (!matchesSearch) {
+                        const mMatch = card.innerHTML.match(/openProductModal\(['"]([^'"]+)['"]\)/);
+                        if (mMatch && machineData[mMatch[1]]) {
+                            const md = machineData[mMatch[1]];
+                            const fullSpecsStr = (md.model + ' ' + (md.category || '') + ' ' + (md.summary || '') + ' ' + 
+                                (md.specs || []).map(s => s[0] + ' ' + s[1]).join(' ')).toLowerCase();
+                            matchesSearch = fullSpecsStr.includes(currentSearchQuery);
+                        }
+                    }
+                }
 
-                if (matchesCat && matchesBrand && !isHidden) {
+                if (matchesCat && matchesBrand && matchesSearch && !isHidden) {
                     card.style.display = 'flex';
                     visibleCount++;
                 } else {
@@ -10559,7 +10759,8 @@
             const counterEl = document.getElementById('activeSectorCounter');
             if (counterEl) {
                 const brandLabel = currentBrand === 'all' ? 'Todas las Marcas' : currentBrand.toUpperCase();
-                counterEl.textContent = `Mostrando ${visibleCount} equipos disponibles (${activeSubtypeObj.label} • ${brandLabel})`;
+                let searchTag = currentSearchQuery ? ` • Búsqueda: "${currentSearchQuery}"` : '';
+                counterEl.textContent = `Mostrando ${visibleCount} equipos disponibles (${activeSubtypeObj.label} • ${brandLabel}${searchTag})`;
             }
 
             let emptyMsg = document.getElementById('catalogEmptyMsg');
@@ -10568,7 +10769,7 @@
                     emptyMsg = document.createElement('div');
                     emptyMsg.id = 'catalogEmptyMsg';
                     emptyMsg.className = 'catalog-empty-state';
-                    emptyMsg.innerHTML = '<i class="fas fa-search"></i><h3>No se encontraron equipos para esta combinación de filtros</h3><p>Prueba seleccionando "Todos" o cambiando la marca.</p>';
+                    emptyMsg.innerHTML = '<i class="fas fa-search"></i><h3>No se encontraron equipos para esta combinación de filtros</h3><p>Prueba cambiando de tipo de máquina, seleccionando "TODAS" las marcas o borrando el término de búsqueda.</p>';
                     document.getElementById('productGrid').appendChild(emptyMsg);
                 }
                 emptyMsg.style.display = 'block';
