@@ -1231,7 +1231,54 @@
             color: #64748b;
             margin-bottom: 15px;
         }
-</style>
+
+        /* --- Brand Bar in Catalog Section --- */
+        .catalog-brand-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 0 0 45px 0;
+        }
+        .brand-bar {
+            background: rgba(26, 28, 33, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: var(--radius-md, 12px);
+            padding: 20px 26px;
+            max-width: 820px;
+            width: 100%;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+        .brand-bar-title {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--primary-gold, #f5a623);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+        .brand-logos-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+    
+        .sector-card-gradient, .sector-card-bg {
+            pointer-events: none;
+        }
+        .sector-card-content {
+            pointer-events: none;
+        }
+        .sector-card {
+            pointer-events: auto;
+        }
+
+    </style>
 </head>
 <body>
 
@@ -1282,10 +1329,24 @@
                     <i class="fas fa-headset"></i> Contactar Asesor
                 </a>
             </div>
+        </div>
+    </section>
 
+        <!-- ── Catálogo Multimarca ───────────────────────────────────────────── -->
+    <section id="catalogo" class="catalog-section">
+        <div class="section-header">
+            <span class="section-tag">Flota Nueva 0 Horas</span>
+            <h2 class="section-title">Catálogo Especializado por Sectores y Familias</h2>
+            <p class="section-desc">
+                Explora nuestra flota organizada por sectores clave de la industria colombiana. Selecciona un sector para ver sus tipos de máquinas y especificaciones técnicas.
+            </p>
+        </div>
+
+                <!-- Cuadro de Marcas (Filtro Rápido) -->
+        <div class="catalog-brand-wrapper">
             <!-- Brand Filter Strip -->
-            <div class="brand-bar" style="margin-top: 20px;">
-                <div class="brand-bar-title">Dar Click al Logo para Filtrar por Marca:</div>
+            <div class="brand-bar" id="catalog-brand-bar">
+                <div class="brand-bar-title">Filtrar Flota por Marca Oficial:</div>
                 <div class="brand-logos-flex">
                     <div class="brand-item" onclick="filterByBrand('zoomlion')">
                         <img src="assets/brands/zoomlion.png" alt="Zoomlion">
@@ -1319,17 +1380,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-        <!-- ── Catálogo Multimarca ───────────────────────────────────────────── -->
-    <section id="catalogo" class="catalog-section">
-        <div class="section-header">
-            <span class="section-tag">Flota Nueva 0 Horas</span>
-            <h2 class="section-title">Catálogo Especializado por Sectores y Familias</h2>
-            <p class="section-desc">
-                Explora nuestra flota organizada por sectores clave de la industria colombiana. Selecciona un sector para ver sus tipos de máquinas y especificaciones técnicas.
-            </p>
         </div>
 
         <!-- 1. VISTA INICIAL: GRANDES FAMILIAS / SECTORES -->
@@ -10386,7 +10436,7 @@
                 else if (sectorId === 'mineria') defaultSubtype = 'camiones';
                 else if (sectorId === 'agricultura') defaultSubtype = 'carga-agro';
                 else defaultSubtype = 'all';
-            } {
+            }
             currentSector = sectorId;
             currentSubtype = defaultSubtype;
             const sector = sectorData[sectorId];
