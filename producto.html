@@ -832,6 +832,34 @@
     <!-- ── Data Engine & Script ─────────────────────────────────────────── -->
     <script>
         const productsDatabase = {
+        'rhino-rex330': {
+            feature1: 'assets/catalog/REX330.jpg',
+            feature2: 'assets/catalog/REX330.jpg',
+            brand: 'Rhino',
+            model: 'Rhino REX330',
+            category: 'Excavadora (32.8 Toneladas)',
+            img: 'assets/catalog/REX330.jpg',
+            summary: 'Equipada con tecnología avanzada, potencia excepcional, ahorro de combustible y confiabilidad inigualable. Diseñada para construcción pesada y movimiento de tierras masivo.',
+            specs: [
+                ['Motor', 'Cummins 6CTAA8 o Rhino®'],
+                ['Potencia Neta', '257 HP (192 kW)'],
+                ['Peso Operativo', '32,800 kg (72,311 lb)'],
+                ['Cilindrada', '8.3 L (506 cu. In)'],
+                ['Cilindros', '6'],
+                ['Sistema de Combustible', 'Inyección Directa'],
+                ['Presión Hidráulica', '34 MPa (4,975 psi)'],
+                ['Capacidad Tanque Combustible', '610 L (161 gal)'],
+                ['Longitud Brazo', '3,185 mm (10.4 ft)'],
+                ['Fuerza de excavación del cucharón', '208 kN (46,760 lb)'],
+                ['Fuerza de excavación del brazo', '184 kN (41,365 lb)'],
+                ['Profundidad Max. Excavación', '7.37 m (24.2 ft)'],
+                ['Altura Max. Excavación', '10.20 m (33.5 ft)'],
+                ['Altura Max. Descarga', '7.13 m (23.4 ft)']
+            ],
+            attachments: ['breaker', 'grapple', 'coupler', 'auger'],
+            pdf: 'assets/pdf/rex330-excavator.pdf'
+        },
+
             'cat-420': {
                 brand: 'CATERPILLAR',
                 category: 'Retroexcavadoras',
@@ -1249,11 +1277,15 @@
             document.getElementById('btnWhatsappHero').href = waUrl;
             document.getElementById('navWhatsappBtn').href = waUrl;
 
-            // PDF Button Link (Send to WA)
-            const pdfMsg = encodeURIComponent(`Hola, necesito la ficha técnica completa en PDF oficial de la ${data.model}`);
-            document.getElementById('btnFichaPdf').href = `https://wa.me/573174775767?text=${pdfMsg}`;
+            // PDF Button Link
+            if (data.pdf) {
+                document.getElementById('btnFichaPdf').href = data.pdf;
+                document.getElementById('btnFichaPdf').target = "_blank";
+            } else {
+                const pdfMsg = encodeURIComponent(`Hola, necesito la ficha técnica completa en PDF oficial de la ${data.model}`);
+                document.getElementById('btnFichaPdf').href = `https://wa.me/573174775767?text=${pdfMsg}`;
+            }
             document.getElementById('navWhatsappBtn').href = waUrl;
-            document.getElementById('btnFichaPdf').href = waUrl;
 
             // Update Feature Images if they exist, otherwise fallback to main image
             const fImg1 = document.getElementById('featureImg1');
