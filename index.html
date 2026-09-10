@@ -1463,6 +1463,72 @@
             align-items: center;
             gap: 10px;
             z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(20px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        .floating-actions-cluster.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        /* ── Sección Por Qué Elegirnos (Diferenciales) ── */
+        .diferenciales-section {
+            padding: 85px 24px;
+            background: linear-gradient(180deg, #0b0c0e 0%, #13151a 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .diferenciales-wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .diferenciales-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 26px;
+        }
+        .diferencial-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 34px 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .diferencial-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary-yellow, #f5a623);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(245, 166, 35, 0.15);
+        }
+        .diferencial-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 12px;
+            background: rgba(245, 166, 35, 0.12);
+            color: var(--primary-yellow, #f5a623);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 4px;
+        }
+        .diferencial-card h3 {
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1.3;
+        }
+        .diferencial-card p {
+            color: #94a3b8;
+            font-size: 0.92rem;
+            line-height: 1.55;
+            margin: 0;
         }
 
         /* Chevrons Amarillos Flotantes */
@@ -1536,7 +1602,7 @@
     <header>
         <div class="nav-container">
             <a href="index.html" class="logo-wrapper">
-                <img src="assets/logo/logo-maquinas-pro.png" alt="MÁQUINAS PRO »">
+                <img loading="lazy" src="assets/logo/logo-maquinas-pro.png" alt="MÁQUINAS PRO »">
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#catalogo" class="active">Catálogo Multimarca</a></li>
@@ -1597,7 +1663,7 @@
             
             <!-- SECTOR 1: CONSTRUCCIÓN -->
             <div class="sector-card" onclick="selectSector('construccion')">
-                <img src="assets/catalog/rhino_loader_action.jpg" alt="Construcción y Obras Civiles" class="sector-card-bg">
+                <img loading="lazy" src="assets/catalog/rhino_loader_action.jpg" alt="Construcción y Obras Civiles" class="sector-card-bg">
                 <div class="sector-card-gradient"></div>
                 <div class="sector-card-content">
                     <span class="sector-badge">Sector Principal</span>
@@ -1609,7 +1675,7 @@
 
             <!-- SECTOR 2: MINERÍA -->
             <div class="sector-card" onclick="selectSector('mineria')">
-                <img src="assets/catalog/modelos/mineria-01.jpg" alt="Minería Industrial" class="sector-card-bg">
+                <img loading="lazy" src="assets/catalog/modelos/mineria-01.jpg" alt="Minería Industrial" class="sector-card-bg">
                 <div class="sector-card-gradient"></div>
                 <div class="sector-card-content">
                     <span class="sector-badge">Alto Tonelaje</span>
@@ -1621,7 +1687,7 @@
 
             <!-- SECTOR 3: AGRICULTURA -->
             <div class="sector-card" onclick="selectSector('agricultura')">
-                <img src="assets/catalog/cards/agro-04.jpg" alt="Agricultura y Agroindustria" class="sector-card-bg">
+                <img loading="lazy" src="assets/catalog/cards/agro-04.jpg" alt="Agricultura y Agroindustria" class="sector-card-bg">
                 <div class="sector-card-gradient"></div>
                 <div class="sector-card-content">
                     <span class="sector-badge">Agroindustria Oficial</span>
@@ -1672,31 +1738,31 @@
                                 <span style="font-weight:800; letter-spacing:0.5px;">TODAS</span>
                             </div>
                             <div class="brand-chip" data-brand="rhino" onclick="filterByBrand('rhino')">
-                                <img src="assets/brands/rhino.png" alt="Rhino">
+                                <img loading="lazy" src="assets/brands/rhino.png" alt="Rhino">
                             </div>
                             <div class="brand-chip" data-brand="caterpillar" onclick="filterByBrand('caterpillar')">
-                                <img src="assets/brands/caterpillar.png" alt="Caterpillar">
+                                <img loading="lazy" src="assets/brands/caterpillar.png" alt="Caterpillar">
                             </div>
                             <div class="brand-chip" data-brand="zoomlion" onclick="filterByBrand('zoomlion')">
-                                <img src="assets/brands/zoomlion.png" alt="Zoomlion">
+                                <img loading="lazy" src="assets/brands/zoomlion.png" alt="Zoomlion">
                             </div>
                             <div class="brand-chip" data-brand="hyundai" onclick="filterByBrand('hyundai')">
-                                <img src="assets/brands/hd-hyundai.png" alt="HD Hyundai">
+                                <img loading="lazy" src="assets/brands/hd-hyundai.png" alt="HD Hyundai">
                             </div>
                             <div class="brand-chip" data-brand="volvo" onclick="filterByBrand('volvo')">
-                                <img src="assets/brands/volvo.svg" alt="Volvo">
+                                <img loading="lazy" src="assets/brands/volvo.svg" alt="Volvo">
                             </div>
                             <div class="brand-chip" data-brand="case" onclick="filterByBrand('case')">
-                                <img src="assets/brands/case.png" alt="CASE">
+                                <img loading="lazy" src="assets/brands/case.png" alt="CASE">
                             </div>
                             <div class="brand-chip" data-brand="shantui" onclick="filterByBrand('shantui')">
-                                <img src="assets/brands/shantui.png" alt="Shantui">
+                                <img loading="lazy" src="assets/brands/shantui.png" alt="Shantui">
                             </div>
                             <div class="brand-chip" data-brand="hitachi" onclick="filterByBrand('hitachi')">
-                                <img src="assets/brands/hitachi.png" alt="Hitachi">
+                                <img loading="lazy" src="assets/brands/hitachi.png" alt="Hitachi">
                             </div>
                             <div class="brand-chip" data-brand="develon" onclick="filterByBrand('develon')">
-                                <img src="assets/brands/develon.png" alt="Develon">
+                                <img loading="lazy" src="assets/brands/develon.png" alt="Develon">
                             </div>
                         </div>
                     </div>
@@ -1728,7 +1794,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rwcw-180')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">AGRO 0 HORAS</span>
-                    <img src="assets/catalog/cards/agro-04.jpg" alt="RWCW-180 Segadora Autopropulsada">
+                    <img loading="lazy" src="assets/catalog/cards/agro-04.jpg" alt="RWCW-180 Segadora Autopropulsada">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RWCW-180 Segadora Autopropulsada</h3>
@@ -1754,7 +1820,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rwcw-190')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">AGRO 0 HORAS</span>
-                    <img src="assets/catalog/cards/agro-05.jpg" alt="RWCW-190 Segadora Autopropulsada">
+                    <img loading="lazy" src="assets/catalog/cards/agro-05.jpg" alt="RWCW-190 Segadora Autopropulsada">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RWCW-190 Segadora Autopropulsada</h3>
@@ -1780,7 +1846,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rcw1015t')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">AGRO 0 HORAS</span>
-                    <img src="assets/catalog/cards/agro-01.jpg" alt="RCW1015T Equipo Agrícola sobre Orugas">
+                    <img loading="lazy" src="assets/catalog/cards/agro-01.jpg" alt="RCW1015T Equipo Agrícola sobre Orugas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RCW1015T Equipo Agrícola sobre Orugas</h3>
@@ -1806,7 +1872,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rcw1520t')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">AGRO 0 HORAS</span>
-                    <img src="assets/catalog/cards/agro-02.jpg" alt="RCW1520T Equipo Agrícola sobre Orugas">
+                    <img loading="lazy" src="assets/catalog/cards/agro-02.jpg" alt="RCW1520T Equipo Agrícola sobre Orugas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RCW1520T Equipo Agrícola sobre Orugas</h3>
@@ -1832,7 +1898,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rcw2030t')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">AGRO 0 HORAS</span>
-                    <img src="assets/catalog/cards/agro-03.jpg" alt="RCW2030T Equipo Agrícola sobre Orugas">
+                    <img loading="lazy" src="assets/catalog/cards/agro-03.jpg" alt="RCW2030T Equipo Agrícola sobre Orugas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RCW2030T Equipo Agrícola sobre Orugas</h3>
@@ -1860,7 +1926,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('cat-420')">
                     <span class="brand-badge">CATERPILLAR</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/Caterpillar Retroexcavadora Cargadora 420.webp" alt="Caterpillar 420">
+                    <img loading="lazy" src="assets/catalog/Caterpillar Retroexcavadora Cargadora 420.webp" alt="Caterpillar 420">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">Caterpillar 420</h3>
@@ -1889,7 +1955,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('zoomlion-ze215g')">
                     <span class="brand-badge">ZOOMLION</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/zoomlion_ze215g_main.jpg" alt="Zoomlion ZE215G">
+                    <img loading="lazy" src="assets/catalog/zoomlion_ze215g_main.jpg" alt="Zoomlion ZE215G">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">Zoomlion ZE215G</h3>
@@ -1918,7 +1984,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('shantui-dh17')">
                     <span class="brand-badge">SHANTUI</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/shantui_dh17_main.jpg" alt="Shantui DH17">
+                    <img loading="lazy" src="assets/catalog/shantui_dh17_main.jpg" alt="Shantui DH17">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">Shantui DH17-B3</h3>
@@ -1947,7 +2013,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('case-580n')">
                     <span class="brand-badge">CASE</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/case_580n.jpg" alt="CASE 580N">
+                    <img loading="lazy" src="assets/catalog/case_580n.jpg" alt="CASE 580N">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">CASE 580N</h3>
@@ -1976,7 +2042,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('hyundai-hx220s')">
                     <span class="brand-badge">HD HYUNDAI</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/hyundai_hx220s.jpg" alt="HD Hyundai HX220S">
+                    <img loading="lazy" src="assets/catalog/hyundai_hx220s.jpg" alt="HD Hyundai HX220S">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">HD Hyundai HX220S</h3>
@@ -2005,7 +2071,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('volvo-ec210')">
                     <span class="brand-badge">VOLVO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/volvo_ec210.jpg" alt="Volvo EC210D">
+                    <img loading="lazy" src="assets/catalog/volvo_ec210.jpg" alt="Volvo EC210D">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">Volvo EC210D</h3>
@@ -2034,7 +2100,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('hitachi-zx200')">
                     <span class="brand-badge">HITACHI</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/hitachi_zx200_main.jpg" alt="Hitachi ZX200-5G">
+                    <img loading="lazy" src="assets/catalog/hitachi_zx200_main.jpg" alt="Hitachi ZX200-5G">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">Hitachi ZX200-5G</h3>
@@ -2063,7 +2129,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('develon-dx225')">
                     <span class="brand-badge">DEVELON</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/develon_dx225.jpg" alt="Develon DX225LCA">
+                    <img loading="lazy" src="assets/catalog/develon_dx225.jpg" alt="Develon DX225LCA">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">Develon DX225LCA-7M</h3>
@@ -2092,7 +2158,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex330')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/REX330.jpg" alt="Rhino REX330">
+                    <img loading="lazy" src="assets/catalog/REX330.jpg" alt="Rhino REX330">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">Rhino REX330</h3>
@@ -2123,7 +2189,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('cat-255')">
                     <span class="brand-badge">CATERPILLAR</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/Caterpillar Skid 1.jpg" alt="Caterpillar 255">
+                    <img loading="lazy" src="assets/catalog/Caterpillar Skid 1.jpg" alt="Caterpillar 255">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">Caterpillar 255</h3>
@@ -2152,7 +2218,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('zoomlion-pump')">
                     <span class="brand-badge">ZOOMLION</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/zoomlion machinery concept 3.jpg" alt="Zoomlion Autobomba de Concreto">
+                    <img loading="lazy" src="assets/catalog/zoomlion machinery concept 3.jpg" alt="Zoomlion Autobomba de Concreto">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">Zoomlion 56X-6RZ</h3>
@@ -2181,7 +2247,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('zoomlion-lift')">
                     <span class="brand-badge">ZOOMLION</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/zoomlion machinery concept 2.jpg" alt="Zoomlion Plataformas de Elevación">
+                    <img loading="lazy" src="assets/catalog/zoomlion machinery concept 2.jpg" alt="Zoomlion Plataformas de Elevación">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">Zoomlion ZA16J / ZS16</h3>
@@ -2209,7 +2275,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rpr109')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RPR109.jpg" alt="RPR109 Compactador Neumático">
+                    <img loading="lazy" src="assets/catalog/modelos/RPR109.jpg" alt="RPR109 Compactador Neumático">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RPR109 Compactador Neumático</h3>
@@ -2235,7 +2301,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rpr1611')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RPR1611.jpg" alt="RPR1611 Compactador Neumático">
+                    <img loading="lazy" src="assets/catalog/modelos/RPR1611.jpg" alt="RPR1611 Compactador Neumático">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RPR1611 Compactador Neumático</h3>
@@ -2261,7 +2327,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rpr2011')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RPR2011.jpg" alt="RPR2011 Compactador Neumático">
+                    <img loading="lazy" src="assets/catalog/modelos/RPR2011.jpg" alt="RPR2011 Compactador Neumático">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RPR2011 Compactador Neumático</h3>
@@ -2287,7 +2353,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rct10h')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RCT10H.jpg" alt="RCT10H Compactador Tandem">
+                    <img loading="lazy" src="assets/catalog/modelos/RCT10H.jpg" alt="RCT10H Compactador Tandem">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RCT10H Compactador Tandem</h3>
@@ -2313,7 +2379,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rct15h')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RCT15H.jpg" alt="RCT15H Compactador Tandem">
+                    <img loading="lazy" src="assets/catalog/modelos/RCT15H.jpg" alt="RCT15H Compactador Tandem">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RCT15H Compactador Tandem</h3>
@@ -2339,7 +2405,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rct30h')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RCT30H.jpg" alt="RCT30H Compactador Tandem">
+                    <img loading="lazy" src="assets/catalog/modelos/RCT30H.jpg" alt="RCT30H Compactador Tandem">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RCT30H Compactador Tandem</h3>
@@ -2365,7 +2431,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rct40h')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RCT40H.jpg" alt="RCT40H Compactador Tandem">
+                    <img loading="lazy" src="assets/catalog/modelos/RCT40H.jpg" alt="RCT40H Compactador Tandem">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RCT40H Compactador Tandem</h3>
@@ -2391,7 +2457,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rct60h')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RCT60H.jpg" alt="RCT60H Compactador Tandem">
+                    <img loading="lazy" src="assets/catalog/modelos/RCT60H.jpg" alt="RCT60H Compactador Tandem">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RCT60H Compactador Tandem</h3>
@@ -2417,7 +2483,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rct80h')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RCT80H.jpg" alt="RCT80H Compactador Tandem">
+                    <img loading="lazy" src="assets/catalog/modelos/RCT80H.jpg" alt="RCT80H Compactador Tandem">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RCT80H Compactador Tandem</h3>
@@ -2443,7 +2509,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rct100h')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RCT100H.jpg" alt="RCT100H Compactador Tandem">
+                    <img loading="lazy" src="assets/catalog/modelos/RCT100H.jpg" alt="RCT100H Compactador Tandem">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RCT100H Compactador Tandem</h3>
@@ -2469,7 +2535,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rct120h')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RCT120H.jpg" alt="RCT120H Compactador Tandem">
+                    <img loading="lazy" src="assets/catalog/modelos/RCT120H.jpg" alt="RCT120H Compactador Tandem">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RCT120H Compactador Tandem</h3>
@@ -2495,7 +2561,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rct14h3')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RCT14H3.jpg" alt="RCT14H3 Compactador Tandem">
+                    <img loading="lazy" src="assets/catalog/modelos/RCT14H3.jpg" alt="RCT14H3 Compactador Tandem">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RCT14H3 Compactador Tandem</h3>
@@ -2521,7 +2587,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rpl25')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RPL25.jpg" alt="RPL25 Tiende Tubos">
+                    <img loading="lazy" src="assets/catalog/modelos/RPL25.jpg" alt="RPL25 Tiende Tubos">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RPL25 Tiende Tubos</h3>
@@ -2547,7 +2613,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rpl45')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RPL45.jpg" alt="RPL45 Tiende Tubos">
+                    <img loading="lazy" src="assets/catalog/modelos/RPL45.jpg" alt="RPL45 Tiende Tubos">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RPL45 Tiende Tubos</h3>
@@ -2573,7 +2639,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rpl70')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RPL70.jpg" alt="RPL70 Tiende Tubos">
+                    <img loading="lazy" src="assets/catalog/modelos/RPL70.jpg" alt="RPL70 Tiende Tubos">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RPL70 Tiende Tubos</h3>
@@ -2599,7 +2665,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rlt4000m')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RLT4000M.jpg" alt="RLT4000M ">
+                    <img loading="lazy" src="assets/catalog/modelos/RLT4000M.jpg" alt="RLT4000M ">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RLT4000M </h3>
@@ -2625,7 +2691,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rlt4000h')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RLT4000H.jpg" alt="RLT4000H ">
+                    <img loading="lazy" src="assets/catalog/modelos/RLT4000H.jpg" alt="RLT4000H ">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RLT4000H </h3>
@@ -2651,7 +2717,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rlt4x150')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RLT4X150.jpg" alt="RLT4X150 Solar">
+                    <img loading="lazy" src="assets/catalog/modelos/RLT4X150.jpg" alt="RLT4X150 Solar">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RLT4X150 Solar</h3>
@@ -2677,7 +2743,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rtl17')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RTL17.jpg" alt="RTL17 Cargador de Orugas">
+                    <img loading="lazy" src="assets/catalog/modelos/RTL17.jpg" alt="RTL17 Cargador de Orugas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RTL17 Cargador de Orugas</h3>
@@ -2703,7 +2769,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rtl24')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RTL24.jpg" alt="RTL24 Cargador de Orugas">
+                    <img loading="lazy" src="assets/catalog/modelos/RTL24.jpg" alt="RTL24 Cargador de Orugas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RTL24 Cargador de Orugas</h3>
@@ -2729,7 +2795,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rtl36')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RTL36.jpg" alt="RTL36 Cargador de Orugas">
+                    <img loading="lazy" src="assets/catalog/modelos/RTL36.jpg" alt="RTL36 Cargador de Orugas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RTL36 Cargador de Orugas</h3>
@@ -2755,7 +2821,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rd8')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RD8.jpg" alt="RD8 Bulldozer de Orugas">
+                    <img loading="lazy" src="assets/catalog/modelos/RD8.jpg" alt="RD8 Bulldozer de Orugas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RD8 Bulldozer de Orugas</h3>
@@ -2781,7 +2847,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rd13')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RD13.jpg" alt="RD13 Bulldozer de Orugas">
+                    <img loading="lazy" src="assets/catalog/modelos/RD13.jpg" alt="RD13 Bulldozer de Orugas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RD13 Bulldozer de Orugas</h3>
@@ -2807,7 +2873,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rd15')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RD15.jpg" alt="RD15 Bulldozer de Orugas">
+                    <img loading="lazy" src="assets/catalog/modelos/RD15.jpg" alt="RD15 Bulldozer de Orugas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RD15 Bulldozer de Orugas</h3>
@@ -2833,7 +2899,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rd17')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RD17.jpg" alt="RD17 Bulldozer de Orugas">
+                    <img loading="lazy" src="assets/catalog/modelos/RD17.jpg" alt="RD17 Bulldozer de Orugas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RD17 Bulldozer de Orugas</h3>
@@ -2859,7 +2925,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rd24')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RD24.jpg" alt="RD24 Bulldozer de Orugas">
+                    <img loading="lazy" src="assets/catalog/modelos/RD24.jpg" alt="RD24 Bulldozer de Orugas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RD24 Bulldozer de Orugas</h3>
@@ -2885,7 +2951,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rd36')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RD36.jpg" alt="RD36 Bulldozer de Orugas">
+                    <img loading="lazy" src="assets/catalog/modelos/RD36.jpg" alt="RD36 Bulldozer de Orugas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RD36 Bulldozer de Orugas</h3>
@@ -2911,7 +2977,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rd50')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RD50.jpg" alt="RD50 Bulldozer de Orugas">
+                    <img loading="lazy" src="assets/catalog/modelos/RD50.jpg" alt="RD50 Bulldozer de Orugas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RD50 Bulldozer de Orugas</h3>
@@ -2937,7 +3003,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rd55')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RD55.jpg" alt="RD55 Bulldozer de Orugas">
+                    <img loading="lazy" src="assets/catalog/modelos/RD55.jpg" alt="RD55 Bulldozer de Orugas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RD55 Bulldozer de Orugas</h3>
@@ -2963,7 +3029,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rs50-s')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RS50-S.jpg" alt="RS50-S Minicargador">
+                    <img loading="lazy" src="assets/catalog/modelos/RS50-S.jpg" alt="RS50-S Minicargador">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RS50-S Minicargador</h3>
@@ -2989,7 +3055,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rs60-s')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RS60-S.jpg" alt="RS60-S Minicargador">
+                    <img loading="lazy" src="assets/catalog/modelos/RS60-S.jpg" alt="RS60-S Minicargador">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RS60-S Minicargador</h3>
@@ -3015,7 +3081,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rs70-s')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RS70-S.jpg" alt="RS70-S Minicargador">
+                    <img loading="lazy" src="assets/catalog/modelos/RS70-S.jpg" alt="RS70-S Minicargador">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RS70-S Minicargador</h3>
@@ -3041,7 +3107,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rt50')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RT50.jpg" alt="RT50 Camión Fuera de Carretera">
+                    <img loading="lazy" src="assets/catalog/modelos/RT50.jpg" alt="RT50 Camión Fuera de Carretera">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RT50 Camión Fuera de Carretera</h3>
@@ -3067,7 +3133,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rt70')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RT70.jpg" alt="RT70 Camión Fuera de Carretera">
+                    <img loading="lazy" src="assets/catalog/modelos/RT70.jpg" alt="RT70 Camión Fuera de Carretera">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RT70 Camión Fuera de Carretera</h3>
@@ -3093,7 +3159,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rt100')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RT100.jpg" alt="RT100 Camión Fuera de Carretera">
+                    <img loading="lazy" src="assets/catalog/modelos/RT100.jpg" alt="RT100 Camión Fuera de Carretera">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RT100 Camión Fuera de Carretera</h3>
@@ -3119,7 +3185,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rmt50')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RMT50.jpg" alt="RMT50 Camión Minero">
+                    <img loading="lazy" src="assets/catalog/modelos/RMT50.jpg" alt="RMT50 Camión Minero">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RMT50 Camión Minero</h3>
@@ -3145,7 +3211,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rmt55')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RMT55.jpg" alt="RMT55 Camión Minero">
+                    <img loading="lazy" src="assets/catalog/modelos/RMT55.jpg" alt="RMT55 Camión Minero">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RMT55 Camión Minero</h3>
@@ -3171,7 +3237,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rmt60')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RMT60.jpg" alt="RMT60 Camión Minero">
+                    <img loading="lazy" src="assets/catalog/modelos/RMT60.jpg" alt="RMT60 Camión Minero">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RMT60 Camión Minero</h3>
@@ -3197,7 +3263,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rmt80')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RMT80.jpg" alt="RMT80 Camión Minero">
+                    <img loading="lazy" src="assets/catalog/modelos/RMT80.jpg" alt="RMT80 Camión Minero">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RMT80 Camión Minero</h3>
@@ -3223,7 +3289,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-radt30')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RADT30.jpg" alt="RADT30 Camión Articulado">
+                    <img loading="lazy" src="assets/catalog/modelos/RADT30.jpg" alt="RADT30 Camión Articulado">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RADT30 Camión Articulado</h3>
@@ -3249,7 +3315,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-radt40')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RADT40.jpg" alt="RADT40 Camión Articulado">
+                    <img loading="lazy" src="assets/catalog/modelos/RADT40.jpg" alt="RADT40 Camión Articulado">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RADT40 Camión Articulado</h3>
@@ -3275,7 +3341,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-radt60')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RADT60.jpg" alt="RADT60 Camión Articulado">
+                    <img loading="lazy" src="assets/catalog/modelos/RADT60.jpg" alt="RADT60 Camión Articulado">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RADT60 Camión Articulado</h3>
@@ -3301,7 +3367,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rcp500w')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RCP500W.jpg" alt="RCP500W Perfiladora de Asfalto">
+                    <img loading="lazy" src="assets/catalog/modelos/RCP500W.jpg" alt="RCP500W Perfiladora de Asfalto">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RCP500W Perfiladora de Asfalto</h3>
@@ -3327,7 +3393,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rcp1000w')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RCP1000W.jpg" alt="RCP1000W Perfiladora de Asfalto">
+                    <img loading="lazy" src="assets/catalog/modelos/RCP1000W.jpg" alt="RCP1000W Perfiladora de Asfalto">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RCP1000W Perfiladora de Asfalto</h3>
@@ -3353,7 +3419,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rcp1300w')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RCP1300W.jpg" alt="RCP1300W Perfiladora de Asfalto">
+                    <img loading="lazy" src="assets/catalog/modelos/RCP1300W.jpg" alt="RCP1300W Perfiladora de Asfalto">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RCP1300W Perfiladora de Asfalto</h3>
@@ -3379,7 +3445,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rcp2100t')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RCP2100T.jpg" alt="RCP2100T Perfiladora de Asfalto">
+                    <img loading="lazy" src="assets/catalog/modelos/RCP2100T.jpg" alt="RCP2100T Perfiladora de Asfalto">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RCP2100T Perfiladora de Asfalto</h3>
@@ -3405,7 +3471,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rap45t')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RAP45T.jpg" alt="RAP45T Asfaltadora">
+                    <img loading="lazy" src="assets/catalog/modelos/RAP45T.jpg" alt="RAP45T Asfaltadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RAP45T Asfaltadora</h3>
@@ -3431,7 +3497,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rap70t')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RAP70T.jpg" alt="RAP70T Asfaltadora">
+                    <img loading="lazy" src="assets/catalog/modelos/RAP70T.jpg" alt="RAP70T Asfaltadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RAP70T Asfaltadora</h3>
@@ -3457,7 +3523,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rap75t')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RAP75T.jpg" alt="RAP75T Asfaltadora">
+                    <img loading="lazy" src="assets/catalog/modelos/RAP75T.jpg" alt="RAP75T Asfaltadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RAP75T Asfaltadora</h3>
@@ -3483,7 +3549,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rap45w')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RAP45W.jpg" alt="RAP45W Asfaltadora">
+                    <img loading="lazy" src="assets/catalog/modelos/RAP45W.jpg" alt="RAP45W Asfaltadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RAP45W Asfaltadora</h3>
@@ -3509,7 +3575,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rap60w')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RAP60W.jpg" alt="RAP60W Asfaltadora">
+                    <img loading="lazy" src="assets/catalog/modelos/RAP60W.jpg" alt="RAP60W Asfaltadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RAP60W Asfaltadora</h3>
@@ -3535,7 +3601,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex60w')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX60W.jpg" alt="REX60W Excavadora de Ruedas">
+                    <img loading="lazy" src="assets/catalog/modelos/REX60W.jpg" alt="REX60W Excavadora de Ruedas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX60W Excavadora de Ruedas</h3>
@@ -3561,7 +3627,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex74cw')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX74CW.jpg" alt="REX74CW Excavadora de Ruedas">
+                    <img loading="lazy" src="assets/catalog/modelos/REX74CW.jpg" alt="REX74CW Excavadora de Ruedas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX74CW Excavadora de Ruedas</h3>
@@ -3587,7 +3653,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex75w')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX75W.jpg" alt="REX75W Excavadora de Ruedas">
+                    <img loading="lazy" src="assets/catalog/modelos/REX75W.jpg" alt="REX75W Excavadora de Ruedas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX75W Excavadora de Ruedas</h3>
@@ -3613,7 +3679,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex210w')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX210W.jpg" alt="REX210W Excavadora de Ruedas">
+                    <img loading="lazy" src="assets/catalog/modelos/REX210W.jpg" alt="REX210W Excavadora de Ruedas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX210W Excavadora de Ruedas</h3>
@@ -3639,7 +3705,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex10')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX10.jpg" alt="REX10 Miniexcavadora">
+                    <img loading="lazy" src="assets/catalog/modelos/REX10.jpg" alt="REX10 Miniexcavadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX10 Miniexcavadora</h3>
@@ -3665,7 +3731,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex18')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX18.jpg" alt="REX18 Miniexcavadora">
+                    <img loading="lazy" src="assets/catalog/modelos/REX18.jpg" alt="REX18 Miniexcavadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX18 Miniexcavadora</h3>
@@ -3691,7 +3757,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex22')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX22.jpg" alt="REX22 Miniexcavadora">
+                    <img loading="lazy" src="assets/catalog/modelos/REX22.jpg" alt="REX22 Miniexcavadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX22 Miniexcavadora</h3>
@@ -3717,7 +3783,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex30')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX30.jpg" alt="REX30 Miniexcavadora">
+                    <img loading="lazy" src="assets/catalog/modelos/REX30.jpg" alt="REX30 Miniexcavadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX30 Miniexcavadora</h3>
@@ -3743,7 +3809,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex35')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX35.jpg" alt="REX35 Miniexcavadora">
+                    <img loading="lazy" src="assets/catalog/modelos/REX35.jpg" alt="REX35 Miniexcavadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX35 Miniexcavadora</h3>
@@ -3769,7 +3835,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex50')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX50.jpg" alt="REX50 Miniexcavadora">
+                    <img loading="lazy" src="assets/catalog/modelos/REX50.jpg" alt="REX50 Miniexcavadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX50 Miniexcavadora</h3>
@@ -3795,7 +3861,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex70-8')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX708.jpg" alt="REX70.8 Miniexcavadora">
+                    <img loading="lazy" src="assets/catalog/modelos/REX708.jpg" alt="REX70.8 Miniexcavadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX70.8 Miniexcavadora</h3>
@@ -3821,7 +3887,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex130')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX130.jpg" alt="REX130 Excavadora Mediana">
+                    <img loading="lazy" src="assets/catalog/modelos/REX130.jpg" alt="REX130 Excavadora Mediana">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX130 Excavadora Mediana</h3>
@@ -3847,7 +3913,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex150')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX150.jpg" alt="REX150 Excavadora Mediana">
+                    <img loading="lazy" src="assets/catalog/modelos/REX150.jpg" alt="REX150 Excavadora Mediana">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX150 Excavadora Mediana</h3>
@@ -3873,7 +3939,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex210')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX210.jpg" alt="REX210 Excavadora">
+                    <img loading="lazy" src="assets/catalog/modelos/REX210.jpg" alt="REX210 Excavadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX210 Excavadora</h3>
@@ -3899,7 +3965,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex330')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX330.jpg" alt="REX330 Excavadora">
+                    <img loading="lazy" src="assets/catalog/modelos/REX330.jpg" alt="REX330 Excavadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX330 Excavadora</h3>
@@ -3925,7 +3991,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex360')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX360.jpg" alt="REX360 Excavadora">
+                    <img loading="lazy" src="assets/catalog/modelos/REX360.jpg" alt="REX360 Excavadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX360 Excavadora</h3>
@@ -3951,7 +4017,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex450')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX450.jpg" alt="REX450 Excavadora">
+                    <img loading="lazy" src="assets/catalog/modelos/REX450.jpg" alt="REX450 Excavadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX450 Excavadora</h3>
@@ -3977,7 +4043,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rex700')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/REX700.jpg" alt="REX700 Excavadora">
+                    <img loading="lazy" src="assets/catalog/modelos/REX700.jpg" alt="REX700 Excavadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">REX700 Excavadora</h3>
@@ -4003,7 +4069,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rwd132')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RWD132.jpg" alt="RWD132 Dozer de Ruedas">
+                    <img loading="lazy" src="assets/catalog/modelos/RWD132.jpg" alt="RWD132 Dozer de Ruedas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RWD132 Dozer de Ruedas</h3>
@@ -4029,7 +4095,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rwd235')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RWD235.jpg" alt="RWD235 Dozer de Ruedas">
+                    <img loading="lazy" src="assets/catalog/modelos/RWD235.jpg" alt="RWD235 Dozer de Ruedas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RWD235 Dozer de Ruedas</h3>
@@ -4055,7 +4121,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rwd315')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RWD315.jpg" alt="RWD315 Dozer de Ruedas">
+                    <img loading="lazy" src="assets/catalog/modelos/RWD315.jpg" alt="RWD315 Dozer de Ruedas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RWD315 Dozer de Ruedas</h3>
@@ -4081,7 +4147,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rc30')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RC30.jpg" alt="RC30 Vibrocompactador">
+                    <img loading="lazy" src="assets/catalog/modelos/RC30.jpg" alt="RC30 Vibrocompactador">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RC30 Vibrocompactador</h3>
@@ -4107,7 +4173,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rc70')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RC70.jpg" alt="RC70 Vibrocompactador">
+                    <img loading="lazy" src="assets/catalog/modelos/RC70.jpg" alt="RC70 Vibrocompactador">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RC70 Vibrocompactador</h3>
@@ -4133,7 +4199,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rc80')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RC80.jpg" alt="RC80 Vibrocompactador">
+                    <img loading="lazy" src="assets/catalog/modelos/RC80.jpg" alt="RC80 Vibrocompactador">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RC80 Vibrocompactador</h3>
@@ -4159,7 +4225,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rc100')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RC100.jpg" alt="RC100 Vibrocompactador">
+                    <img loading="lazy" src="assets/catalog/modelos/RC100.jpg" alt="RC100 Vibrocompactador">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RC100 Vibrocompactador</h3>
@@ -4185,7 +4251,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rc120')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RC120.jpg" alt="RC120 Vibrocompactador">
+                    <img loading="lazy" src="assets/catalog/modelos/RC120.jpg" alt="RC120 Vibrocompactador">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RC120 Vibrocompactador</h3>
@@ -4211,7 +4277,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rc140')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RC140.jpg" alt="RC140 Vibrocompactador">
+                    <img loading="lazy" src="assets/catalog/modelos/RC140.jpg" alt="RC140 Vibrocompactador">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RC140 Vibrocompactador</h3>
@@ -4237,7 +4303,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rc160')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RC160.jpg" alt="RC160 Vibrocompactador">
+                    <img loading="lazy" src="assets/catalog/modelos/RC160.jpg" alt="RC160 Vibrocompactador">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RC160 Vibrocompactador</h3>
@@ -4263,7 +4329,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rc180')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RC180.jpg" alt="RC180 Vibrocompactador">
+                    <img loading="lazy" src="assets/catalog/modelos/RC180.jpg" alt="RC180 Vibrocompactador">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RC180 Vibrocompactador</h3>
@@ -4289,7 +4355,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rc200')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RC200.jpg" alt="RC200 Vibrocompactador">
+                    <img loading="lazy" src="assets/catalog/modelos/RC200.jpg" alt="RC200 Vibrocompactador">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RC200 Vibrocompactador</h3>
@@ -4315,7 +4381,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rm80')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RM80.jpg" alt="RM80 Motoniveladora">
+                    <img loading="lazy" src="assets/catalog/modelos/RM80.jpg" alt="RM80 Motoniveladora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RM80 Motoniveladora</h3>
@@ -4341,7 +4407,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rm120')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RM120.jpg" alt="RM120 Motoniveladora">
+                    <img loading="lazy" src="assets/catalog/modelos/RM120.jpg" alt="RM120 Motoniveladora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RM120 Motoniveladora</h3>
@@ -4367,7 +4433,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rm123')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RM123.jpg" alt="RM123 Motoniveladora">
+                    <img loading="lazy" src="assets/catalog/modelos/RM123.jpg" alt="RM123 Motoniveladora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RM123 Motoniveladora</h3>
@@ -4393,7 +4459,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rm138')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RM138.jpg" alt="RM138 Motoniveladora">
+                    <img loading="lazy" src="assets/catalog/modelos/RM138.jpg" alt="RM138 Motoniveladora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RM138 Motoniveladora</h3>
@@ -4419,7 +4485,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rm165')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RM165.jpg" alt="RM165 Motoniveladora">
+                    <img loading="lazy" src="assets/catalog/modelos/RM165.jpg" alt="RM165 Motoniveladora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RM165 Motoniveladora</h3>
@@ -4445,7 +4511,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rm166')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RM166.jpg" alt="RM166 Motoniveladora">
+                    <img loading="lazy" src="assets/catalog/modelos/RM166.jpg" alt="RM166 Motoniveladora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RM166 Motoniveladora</h3>
@@ -4471,7 +4537,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rtc2325')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RTC2325.jpg" alt="RTC2325 Torre Grúa">
+                    <img loading="lazy" src="assets/catalog/modelos/RTC2325.jpg" alt="RTC2325 Torre Grúa">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RTC2325 Torre Grúa</h3>
@@ -4497,7 +4563,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rtc4708')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RTC4708.jpg" alt="RTC4708 Torre Grúa">
+                    <img loading="lazy" src="assets/catalog/modelos/RTC4708.jpg" alt="RTC4708 Torre Grúa">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RTC4708 Torre Grúa</h3>
@@ -4523,7 +4589,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rtc4807')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RTC4807.jpg" alt="RTC4807 Torre Grúa">
+                    <img loading="lazy" src="assets/catalog/modelos/RTC4807.jpg" alt="RTC4807 Torre Grúa">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RTC4807 Torre Grúa</h3>
@@ -4549,7 +4615,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rtc5013')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RTC5013.jpg" alt="RTC5013 Torre Grúa">
+                    <img loading="lazy" src="assets/catalog/modelos/RTC5013.jpg" alt="RTC5013 Torre Grúa">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RTC5013 Torre Grúa</h3>
@@ -4575,7 +4641,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rtc5512')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RTC5512.jpg" alt="RTC5512 Torre Grúa">
+                    <img loading="lazy" src="assets/catalog/modelos/RTC5512.jpg" alt="RTC5512 Torre Grúa">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RTC5512 Torre Grúa</h3>
@@ -4601,7 +4667,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rtc6014')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RTC6014.jpg" alt="RTC6014 Torre Grúa">
+                    <img loading="lazy" src="assets/catalog/modelos/RTC6014.jpg" alt="RTC6014 Torre Grúa">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RTC6014 Torre Grúa</h3>
@@ -4627,7 +4693,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rtc6014b')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RTC6014B.jpg" alt="RTC6014B Torre Grúa">
+                    <img loading="lazy" src="assets/catalog/modelos/RTC6014B.jpg" alt="RTC6014B Torre Grúa">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RTC6014B Torre Grúa</h3>
@@ -4653,7 +4719,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rtc6516')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RTC6516.jpg" alt="RTC6516 Torre Grúa">
+                    <img loading="lazy" src="assets/catalog/modelos/RTC6516.jpg" alt="RTC6516 Torre Grúa">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RTC6516 Torre Grúa</h3>
@@ -4679,7 +4745,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rtce5012t')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RTCE5012T.jpg" alt="RTCE5012T Elevator">
+                    <img loading="lazy" src="assets/catalog/modelos/RTCE5012T.jpg" alt="RTCE5012T Elevator">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RTCE5012T Elevator</h3>
@@ -4705,7 +4771,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rh254sk')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RH254SK.jpg" alt="RH254SK Martillo Hidráulico">
+                    <img loading="lazy" src="assets/catalog/modelos/RH254SK.jpg" alt="RH254SK Martillo Hidráulico">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RH254SK Martillo Hidráulico</h3>
@@ -4731,7 +4797,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rh47sk')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RH47SK.jpg" alt="RH47SK Martillo Hidráulico">
+                    <img loading="lazy" src="assets/catalog/modelos/RH47SK.jpg" alt="RH47SK Martillo Hidráulico">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RH47SK Martillo Hidráulico</h3>
@@ -4757,7 +4823,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rh47be')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RH47BE.jpg" alt="RH47BE Martillo Hidráulico">
+                    <img loading="lazy" src="assets/catalog/modelos/RH47BE.jpg" alt="RH47BE Martillo Hidráulico">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RH47BE Martillo Hidráulico</h3>
@@ -4783,7 +4849,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rh714be')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RH714BE.jpg" alt="RH714BE Martillo Hidráulico">
+                    <img loading="lazy" src="assets/catalog/modelos/RH714BE.jpg" alt="RH714BE Martillo Hidráulico">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RH714BE Martillo Hidráulico</h3>
@@ -4809,7 +4875,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rh1826ex')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RH1826EX.jpg" alt="RH1826EX Martillo Hidráulico">
+                    <img loading="lazy" src="assets/catalog/modelos/RH1826EX.jpg" alt="RH1826EX Martillo Hidráulico">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RH1826EX Martillo Hidráulico</h3>
@@ -4835,7 +4901,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rh2735ex')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RH2735EX.jpg" alt="RH2735EX Martillo Hidráulico">
+                    <img loading="lazy" src="assets/catalog/modelos/RH2735EX.jpg" alt="RH2735EX Martillo Hidráulico">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RH2735EX Martillo Hidráulico</h3>
@@ -4861,7 +4927,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rh3255ex')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RH3255EX.jpg" alt="RH3255EX Martillo Hidráulico">
+                    <img loading="lazy" src="assets/catalog/modelos/RH3255EX.jpg" alt="RH3255EX Martillo Hidráulico">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RH3255EX Martillo Hidráulico</h3>
@@ -4887,7 +4953,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rsc220')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RSC220.jpg" alt="RSC220 Compactador de Suelos">
+                    <img loading="lazy" src="assets/catalog/modelos/RSC220.jpg" alt="RSC220 Compactador de Suelos">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RSC220 Compactador de Suelos</h3>
@@ -4913,7 +4979,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rsc223')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RSC223.jpg" alt="RSC223 Compactador de Suelos">
+                    <img loading="lazy" src="assets/catalog/modelos/RSC223.jpg" alt="RSC223 Compactador de Suelos">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RSC223 Compactador de Suelos</h3>
@@ -4939,7 +5005,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rsc226')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RSC226.jpg" alt="RSC226 Compactador de Suelos">
+                    <img loading="lazy" src="assets/catalog/modelos/RSC226.jpg" alt="RSC226 Compactador de Suelos">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RSC226 Compactador de Suelos</h3>
@@ -4965,7 +5031,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rsc228')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RSC228.jpg" alt="RSC228 Compactador de Suelos">
+                    <img loading="lazy" src="assets/catalog/modelos/RSC228.jpg" alt="RSC228 Compactador de Suelos">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RSC228 Compactador de Suelos</h3>
@@ -4991,7 +5057,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rsc230')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RSC230.jpg" alt="RSC230 Compactador de Suelos">
+                    <img loading="lazy" src="assets/catalog/modelos/RSC230.jpg" alt="RSC230 Compactador de Suelos">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RSC230 Compactador de Suelos</h3>
@@ -5017,7 +5083,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rsc233')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RSC233.jpg" alt="RSC233 Compactador de Suelos">
+                    <img loading="lazy" src="assets/catalog/modelos/RSC233.jpg" alt="RSC233 Compactador de Suelos">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RSC233 Compactador de Suelos</h3>
@@ -5043,7 +5109,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rwl65')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RWL65.jpg" alt="RWL65 Cargador de Ruedas">
+                    <img loading="lazy" src="assets/catalog/modelos/RWL65.jpg" alt="RWL65 Cargador de Ruedas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RWL65 Cargador de Ruedas</h3>
@@ -5069,7 +5135,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rwl102')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RWL102.jpg" alt="RWL102 Cargador de Ruedas">
+                    <img loading="lazy" src="assets/catalog/modelos/RWL102.jpg" alt="RWL102 Cargador de Ruedas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RWL102 Cargador de Ruedas</h3>
@@ -5095,7 +5161,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rwl132')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RWL132.jpg" alt="RWL132 Cargador de Ruedas">
+                    <img loading="lazy" src="assets/catalog/modelos/RWL132.jpg" alt="RWL132 Cargador de Ruedas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RWL132 Cargador de Ruedas</h3>
@@ -5121,7 +5187,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rwl163')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RWL163.jpg" alt="RWL163 Cargador de Ruedas">
+                    <img loading="lazy" src="assets/catalog/modelos/RWL163.jpg" alt="RWL163 Cargador de Ruedas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RWL163 Cargador de Ruedas</h3>
@@ -5147,7 +5213,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rwl186')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RWL186.jpg" alt="RWL186 Cargador de Ruedas">
+                    <img loading="lazy" src="assets/catalog/modelos/RWL186.jpg" alt="RWL186 Cargador de Ruedas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RWL186 Cargador de Ruedas</h3>
@@ -5173,7 +5239,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rwl235')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RWL235.jpg" alt="RWL235 Cargador de Ruedas">
+                    <img loading="lazy" src="assets/catalog/modelos/RWL235.jpg" alt="RWL235 Cargador de Ruedas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RWL235 Cargador de Ruedas</h3>
@@ -5199,7 +5265,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rwl315')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RWL315.jpg" alt="RWL315 Cargador de Ruedas">
+                    <img loading="lazy" src="assets/catalog/modelos/RWL315.jpg" alt="RWL315 Cargador de Ruedas">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RWL315 Cargador de Ruedas</h3>
@@ -5225,7 +5291,7 @@
                 <div class="card-img-wrapper" onclick="openProductModal('rhino-rbh70')">
                     <span class="brand-badge">RHINO</span>
                     <span class="condition-badge">0 HORAS</span>
-                    <img src="assets/catalog/modelos/RBH70.jpg" alt="RBH70 Retroexcavadora">
+                    <img loading="lazy" src="assets/catalog/modelos/RBH70.jpg" alt="RBH70 Retroexcavadora">
                 </div>
                 <div class="card-body">
                     <h3 class="card-model">RBH70 Retroexcavadora</h3>
@@ -5310,7 +5376,7 @@
             </button>
             <div class="modal-hero-split">
                 <div class="modal-img-col">
-                    <img id="modalImg" src="" alt="Equipo">
+                    <img loading="lazy" id="modalImg" src="" alt="Equipo">
                 </div>
                 <div class="modal-info-col">
                     <div class="modal-brand-tag" id="modalBrand">MARCA OFICIAL</div>
@@ -5341,8 +5407,43 @@
     </div>
 
     
+    <!-- ── Por Qué Elegirnos (Diferenciales Reales de Valor) ───────────── -->
+    <section class="diferenciales-section" id="ventajas">
+        <div class="diferenciales-wrapper">
+            <div class="section-header" style="text-align: center; margin-bottom: 48px;">
+                <span class="section-tag">Diferenciales de Solidez</span>
+                <h2 class="section-title">POR QUÉ ELEGIR MÁQUINAS PRO</h2>
+                <p class="section-desc" style="max-width: 820px; margin: 0 auto;">
+                    Respaldamos proyectos de construcción, infraestructura vial, minería y agroindustria con los más altos estándares de servicio, transparencia y cumplimiento en Colombia.
+                </p>
+            </div>
+            <div class="diferenciales-grid">
+                <div class="diferencial-card">
+                    <div class="diferencial-icon"><i class="fas fa-shield-halved"></i></div>
+                    <h3>Garantía Directa de Fábrica</h3>
+                    <p>Equipos 100% nuevos 0 horas amparados con póliza oficial de fabricante, certificación de cabina ROPS/FOPS y líneas hidráulicas auxiliares estándar.</p>
+                </div>
+                <div class="diferencial-card">
+                    <div class="diferencial-icon"><i class="fas fa-truck-fast"></i></div>
+                    <h3>Despliegue y Cobertura Nacional</h3>
+                    <p>Logística de transporte especializada para entregar directamente en tu frente de obra en los 32 departamentos del país, con despachos desde bodegas y puertos.</p>
+                </div>
+                <div class="diferencial-card">
+                    <div class="diferencial-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3>Leasing y Financiación a la Medida</h3>
+                    <p>Estructuración financiera ágil para constructoras, consorcios y alcaldías con opciones de leasing operativo o financiero con tasas competitivas.</p>
+                </div>
+                <div class="diferencial-card">
+                    <div class="diferencial-icon"><i class="fas fa-screwdriver-wrench"></i></div>
+                    <h3>Soporte Técnico 24/7 y Repuestos</h3>
+                    <p>Ingenieros mecánicos e hidráulicos certificados en campo, mantenimiento preventivo programado y stock garantizado de repuestos para cero tiempos muertos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ── Pasos / Proceso ────────────────────────────────────────────────── -->
-    <section class="steps-section" id="ventajas">
+    <section class="steps-section" id="proceso">
         <div class="steps-wrapper">
             <div style="text-align: center; margin-bottom: 40px;">
                 <span class="section-tag">Metodología Comprobada</span>
@@ -5449,29 +5550,29 @@
             <div class="footer-multibrand-banner">
                 <div class="brand-carousel-track">
                     <!-- Primera Serie -->
-                    <img src="assets/brands/zoomlion.png" alt="Zoomlion">
-                    <img src="assets/brands/caterpillar.png" alt="Caterpillar">
-                    <img src="assets/brands/volvo.svg" alt="Volvo">
-                    <img src="assets/brands/hd-hyundai.png" alt="HD Hyundai">
-                    <img src="assets/brands/case.png" alt="CASE">
-                    <img src="assets/brands/shantui.png" alt="Shantui">
-                    <img src="assets/brands/hitachi.png" alt="Hitachi">
-                    <img src="assets/brands/develon.png" alt="Develon">
+                    <img loading="lazy" src="assets/brands/zoomlion.png" alt="Zoomlion">
+                    <img loading="lazy" src="assets/brands/caterpillar.png" alt="Caterpillar">
+                    <img loading="lazy" src="assets/brands/volvo.svg" alt="Volvo">
+                    <img loading="lazy" src="assets/brands/hd-hyundai.png" alt="HD Hyundai">
+                    <img loading="lazy" src="assets/brands/case.png" alt="CASE">
+                    <img loading="lazy" src="assets/brands/shantui.png" alt="Shantui">
+                    <img loading="lazy" src="assets/brands/hitachi.png" alt="Hitachi">
+                    <img loading="lazy" src="assets/brands/develon.png" alt="Develon">
                     <!-- Segunda Serie (Clonada para Loop Infinito) -->
-                    <img src="assets/brands/zoomlion.png" alt="Zoomlion">
-                    <img src="assets/brands/caterpillar.png" alt="Caterpillar">
-                    <img src="assets/brands/volvo.svg" alt="Volvo">
-                    <img src="assets/brands/hd-hyundai.png" alt="HD Hyundai">
-                    <img src="assets/brands/case.png" alt="CASE">
-                    <img src="assets/brands/shantui.png" alt="Shantui">
-                    <img src="assets/brands/hitachi.png" alt="Hitachi">
-                    <img src="assets/brands/develon.png" alt="Develon">
+                    <img loading="lazy" src="assets/brands/zoomlion.png" alt="Zoomlion">
+                    <img loading="lazy" src="assets/brands/caterpillar.png" alt="Caterpillar">
+                    <img loading="lazy" src="assets/brands/volvo.svg" alt="Volvo">
+                    <img loading="lazy" src="assets/brands/hd-hyundai.png" alt="HD Hyundai">
+                    <img loading="lazy" src="assets/brands/case.png" alt="CASE">
+                    <img loading="lazy" src="assets/brands/shantui.png" alt="Shantui">
+                    <img loading="lazy" src="assets/brands/hitachi.png" alt="Hitachi">
+                    <img loading="lazy" src="assets/brands/develon.png" alt="Develon">
                 </div>
             </div>
 
             <div class="footer-cols">
                 <div class="footer-col">
-                    <img src="assets/logo/logo-maquinas-pro.png" alt="MÁQUINAS PRO »" style="height:44px; margin-bottom:14px;">
+                    <img loading="lazy" src="assets/logo/logo-maquinas-pro.png" alt="MÁQUINAS PRO »" style="height:44px; margin-bottom:14px;">
                     <p>
                         Importador y Representante Especializado de Maquinaria Pesada Multimarca en Colombia. Soluciones integrales de venta, leasing, repuestos y servicio técnico garantizado.
                     </p>
