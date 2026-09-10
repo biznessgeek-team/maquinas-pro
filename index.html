@@ -1359,6 +1359,24 @@
         .brand-chip.active span {
             color: var(--primary-yellow, #f5a623);
         }
+        .brand-chip.disabled {
+            opacity: 0.22;
+            filter: grayscale(100%) contrast(0.65);
+            cursor: not-allowed;
+            background: rgba(0, 0, 0, 0.14);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+            box-shadow: none !important;
+            transform: none !important;
+        }
+        .brand-chip.disabled:hover {
+            background: rgba(0, 0, 0, 0.14);
+            border-color: rgba(255, 255, 255, 0.1) !important;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+        .brand-chip.disabled img {
+            filter: grayscale(100%) brightness(0.65);
+        }
 
         /* Buscador en Catálogo */
         .catalog-search-container {
@@ -11081,6 +11099,7 @@
             if (clearBtn) clearBtn.style.display = 'none';
 
             buildSubtypePills(sector);
+            updateBrandChipsAvailability();
             applyCatalogFilter();
 
             const catEl = document.getElementById('catalogo');
@@ -11117,17 +11136,76 @@
             });
         }
 
+        function updateBrandChipsAvailability() {
+            if (!currentSector) return;
+            const sector = sectorData[currentSector];
+            if (!sector) return;
+
+            const activeSubtypeObj = sector.subtypes.find(st => st.id === currentSubtype) || sector.subtypes[0];
+            const allowedCats = activeSubtypeObj.cats;
+
+            // Contar cuántos equipos no ocultos tiene cada marca en esta familia
+            const brandCounts = {};
+            const allCards = document.querySelectorAll('.product-card');
+            allCards.forEach(card => {
+                const isHidden = card.getAttribute('data-hidden') === 'true';
+                if (isHidden) return;
+                const cardCat = (card.dataset.category || '').toLowerCase();
+                const cardBrand = (card.dataset.brand || '').toLowerCase();
+                if (allowedCats.includes(cardCat)) {
+                    brandCounts[cardBrand] = (brandCounts[cardBrand] || 0) + 1;
+                }
+            });
+
+            let currentBrandStillValid = (currentBrand === 'all');
+
+            // Actualizar apariencia y estado de cada chip de marca
+            document.querySelectorAll('.brand-chip').forEach(chip => {
+                const b = chip.getAttribute('data-brand');
+                if (!b || b === 'all') {
+                    chip.classList.remove('disabled');
+                    chip.title = 'Mostrar todas las marcas disponibles en esta categoría';
+                    return;
+                }
+
+                const count = brandCounts[b] || 0;
+                if (count > 0) {
+                    chip.classList.remove('disabled');
+                    chip.title = `${count} equipo(s) disponible(s) en ${activeSubtypeObj.label}`;
+                    if (currentBrand === b) {
+                        currentBrandStillValid = true;
+                    }
+                } else {
+                    chip.classList.add('disabled');
+                    chip.title = `Sin equipos disponibles en ${activeSubtypeObj.label}`;
+                    chip.classList.remove('active');
+                }
+            });
+
+            // Si la marca previamente activa no tiene equipos en la nueva familia, restablecer a 'TODAS'
+            if (!currentBrandStillValid) {
+                currentBrand = 'all';
+                const allChip = document.querySelector('.brand-chip[data-brand="all"]');
+                if (allChip) allChip.classList.add('active');
+            }
+        }
+
         function selectSubtype(subtypeId) {
             currentSubtype = subtypeId;
             currentVisibleLimit = 6; // Reset a primeras 2 filas
             const sector = sectorData[currentSector];
             if (sector) {
                 buildSubtypePills(sector);
+                updateBrandChipsAvailability();
             }
             applyCatalogFilter();
         }
 
         function filterByBrand(brand) {
+            if (brand !== 'all') {
+                const targetChip = document.querySelector(`.brand-chip[data-brand="${brand}"]`);
+                if (targetChip && targetChip.classList.contains('disabled')) return;
+            }
             currentBrand = brand;
             currentVisibleLimit = 6; // Reset a primeras 2 filas
             document.querySelectorAll('.brand-chip').forEach(el => el.classList.remove('active'));
