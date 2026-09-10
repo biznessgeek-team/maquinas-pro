@@ -1410,6 +1410,124 @@
             padding-left: 6px;
         }
 
+    
+        /* ════════════════════════════════════════════════════════════════════
+           BOTÓN "MOSTRAR MÁS" (PAGINACIÓN 6 EN 6) Y BOTONES FLOTANTES
+           ════════════════════════════════════════════════════════════════════ */
+        .load-more-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin: 40px auto 20px auto;
+            width: 100%;
+        }
+        .btn-load-more {
+            background: linear-gradient(135deg, #f5a623 0%, #e08b10 100%);
+            color: #111;
+            padding: 14px 34px;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            border-radius: 30px;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 22px rgba(245, 166, 35, 0.35);
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+        .btn-load-more:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(245, 166, 35, 0.5);
+            background: linear-gradient(135deg, #ffb338 0%, #f5a623 100%);
+        }
+        .btn-load-more:active {
+            transform: scale(0.97);
+        }
+        .load-more-info {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* ── Cluster Flotante: Chevrons + WhatsApp ── */
+        .floating-actions-cluster {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            z-index: 9999;
+        }
+
+        /* Chevrons Amarillos Flotantes */
+        .nav-chevrons-group {
+            display: flex;
+            flex-direction: column;
+            background: #18191c;
+            border: 2px solid var(--primary-yellow, #f5a623);
+            border-radius: 30px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(245, 166, 35, 0.25);
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .chevron-float-btn {
+            background: transparent;
+            border: none;
+            color: var(--primary-yellow, #f5a623);
+            font-size: 1.15rem;
+            width: 46px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .chevron-float-btn:hover {
+            background: var(--primary-yellow, #f5a623);
+            color: #111;
+        }
+        .chevron-float-btn:active {
+            transform: scale(0.92);
+        }
+        .chevron-divider {
+            height: 1px;
+            background: rgba(245, 166, 35, 0.35);
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        /* Botón WhatsApp Flotante */
+        .wa-float-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: #25D366;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 8px 22px rgba(37, 211, 102, 0.45);
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .wa-float-btn:hover {
+            transform: translateY(-3px) scale(1.08);
+            box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6);
+            color: #fff;
+        }
+        .wa-float-btn:active {
+            transform: scale(0.95);
+        }
+
     </style>
 </head>
 <body>
@@ -5000,6 +5118,16 @@
                 </div>
             </div>
 </div>
+
+        <!-- Botón "Mostrar Más" (Paginación progresiva de 6 en 6 / 2 filas) -->
+        <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+            <button class="btn btn-load-more" id="btnLoadMore" onclick="loadMoreMachines()">
+                <i class="fas fa-plus-circle"></i> Mostrar Más Máquinas (<span id="loadMoreCount">6</span> más)
+            </button>
+            <div class="load-more-info" id="loadMoreInfo">
+                Mostrando <span id="currentShowingCount">6</span> de <span id="totalMatchingCount">24</span> equipos
+            </div>
+        </div>
     </section>
 
     <!-- ── Sección Especial: Reconstrucción Urbana & Desastres ──────────── -->
@@ -10542,12 +10670,13 @@
         };
 
         // ════════════════════════════════════════════════════════════════════
-        // SISTEMA DE FILTRADO JERÁRQUICO COMBINADO: SECTOR + TIPO + MARCA + BUSCADOR
+        // SISTEMA DE FILTRADO JERÁRQUICO COMBINADO + PAGINACIÓN (MOSTRAR MÁS)
         // ════════════════════════════════════════════════════════════════════
         let currentBrand = 'all';
         let currentSector = null;
         let currentSubtype = 'all';
         let currentSearchQuery = '';
+        let currentVisibleLimit = 6; // Paginación: 2 filas iniciales (6 máquinas)
 
         const sectorData = {
             'construccion': {
@@ -10597,6 +10726,7 @@
             currentSubtype = defaultSubtype;
             currentBrand = 'all';
             currentSearchQuery = '';
+            currentVisibleLimit = 6; // Reset a primeras 2 filas
 
             const sector = sectorData[sectorId];
             if (!sector) return;
@@ -10657,6 +10787,7 @@
 
         function selectSubtype(subtypeId) {
             currentSubtype = subtypeId;
+            currentVisibleLimit = 6; // Reset a primeras 2 filas
             const sector = sectorData[currentSector];
             if (sector) {
                 buildSubtypePills(sector);
@@ -10666,6 +10797,7 @@
 
         function filterByBrand(brand) {
             currentBrand = brand;
+            currentVisibleLimit = 6; // Reset a primeras 2 filas
             document.querySelectorAll('.brand-chip').forEach(el => el.classList.remove('active'));
             const activeChip = document.querySelector(`.brand-chip[data-brand="${brand}"]`);
             if (activeChip) activeChip.classList.add('active');
@@ -10678,6 +10810,7 @@
 
         function onSearchInput(val) {
             currentSearchQuery = val.trim().toLowerCase();
+            currentVisibleLimit = 6; // Reset a primeras 2 filas
             const clearBtn = document.getElementById('searchClearBtn');
             if (clearBtn) {
                 clearBtn.style.display = currentSearchQuery.length > 0 ? 'flex' : 'none';
@@ -10689,8 +10822,14 @@
             const input = document.getElementById('catalogSearchInput');
             if (input) input.value = '';
             currentSearchQuery = '';
+            currentVisibleLimit = 6;
             const clearBtn = document.getElementById('searchClearBtn');
             if (clearBtn) clearBtn.style.display = 'none';
+            applyCatalogFilter();
+        }
+
+        function loadMoreMachines() {
+            currentVisibleLimit += 6; // Despliega 2 filas adicionales (6 máquinas)
             applyCatalogFilter();
         }
 
@@ -10699,9 +10838,13 @@
             currentSubtype = 'all';
             currentBrand = 'all';
             currentSearchQuery = '';
+            currentVisibleLimit = 6;
             document.getElementById('sectors-view').style.display = 'grid';
             document.getElementById('active-sector-view').style.display = 'none';
             document.getElementById('productGrid').style.display = 'none';
+            
+            const lmContainer = document.getElementById('loadMoreContainer');
+            if (lmContainer) lmContainer.style.display = 'none';
 
             const catEl = document.getElementById('catalogo');
             if (catEl) catEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -10710,9 +10853,12 @@
         function applyCatalogFilter() {
             const cards = document.querySelectorAll('.product-card');
             let visibleCount = 0;
+            let totalMatching = 0;
 
             if (!currentSector) {
                 cards.forEach(card => card.style.display = 'none');
+                const lmContainer = document.getElementById('loadMoreContainer');
+                if (lmContainer) lmContainer.style.display = 'none';
                 return;
             }
 
@@ -10722,6 +10868,8 @@
             const activeSubtypeObj = sector.subtypes.find(st => st.id === currentSubtype) || sector.subtypes[0];
             const allowedCats = activeSubtypeObj.cats;
 
+            // 1. Filtrar equipos que cumplen criterios
+            const matchingCards = [];
             cards.forEach(card => {
                 const cardCat = (card.dataset.category || '').toLowerCase();
                 const cardBrand = (card.dataset.brand || '').toLowerCase();
@@ -10729,14 +10877,12 @@
 
                 const matchesCat = allowedCats.includes(cardCat);
                 const matchesBrand = (currentBrand === 'all' || cardBrand === currentBrand);
-                
-                // Búsqueda inteligente por texto en tarjeta y ficha técnica completa
+
                 let matchesSearch = true;
                 if (currentSearchQuery) {
                     const cardText = card.textContent.toLowerCase();
                     matchesSearch = cardText.includes(currentSearchQuery);
                     
-                    // Si no coincide en la carátula, buscar a fondo en machineData (motor, caudal, specs)
                     if (!matchesSearch) {
                         const mMatch = card.innerHTML.match(/openProductModal\(['"]([^'"]+)['"]\)/);
                         if (mMatch && machineData[mMatch[1]]) {
@@ -10749,6 +10895,17 @@
                 }
 
                 if (matchesCat && matchesBrand && matchesSearch && !isHidden) {
+                    matchingCards.push(card);
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            totalMatching = matchingCards.length;
+
+            // 2. Aplicar paginación: mostrar sólo hasta currentVisibleLimit
+            matchingCards.forEach((card, idx) => {
+                if (idx < currentVisibleLimit) {
                     card.style.display = 'flex';
                     visibleCount++;
                 } else {
@@ -10756,15 +10913,35 @@
                 }
             });
 
+            // 3. Actualizar contador en cabecera
             const counterEl = document.getElementById('activeSectorCounter');
             if (counterEl) {
                 const brandLabel = currentBrand === 'all' ? 'Todas las Marcas' : currentBrand.toUpperCase();
                 let searchTag = currentSearchQuery ? ` • Búsqueda: "${currentSearchQuery}"` : '';
-                counterEl.textContent = `Mostrando ${visibleCount} equipos disponibles (${activeSubtypeObj.label} • ${brandLabel}${searchTag})`;
+                counterEl.textContent = `Mostrando ${visibleCount} de ${totalMatching} equipos disponibles (${activeSubtypeObj.label} • ${brandLabel}${searchTag})`;
             }
 
+            // 4. Gestionar visibilidad del botón "Mostrar Más"
+            const lmContainer = document.getElementById('loadMoreContainer');
+            if (lmContainer) {
+                if (totalMatching > currentVisibleLimit) {
+                    lmContainer.style.display = 'flex';
+                    const remaining = totalMatching - currentVisibleLimit;
+                    const nextBatch = Math.min(6, remaining);
+                    const lmCountEl = document.getElementById('loadMoreCount');
+                    if (lmCountEl) lmCountEl.textContent = nextBatch;
+                    const currShowingEl = document.getElementById('currentShowingCount');
+                    if (currShowingEl) currShowingEl.textContent = visibleCount;
+                    const totalMatchEl = document.getElementById('totalMatchingCount');
+                    if (totalMatchEl) totalMatchEl.textContent = totalMatching;
+                } else {
+                    lmContainer.style.display = 'none';
+                }
+            }
+
+            // 5. Estado vacío
             let emptyMsg = document.getElementById('catalogEmptyMsg');
-            if (visibleCount === 0) {
+            if (totalMatching === 0) {
                 if (!emptyMsg) {
                     emptyMsg = document.createElement('div');
                     emptyMsg.id = 'catalogEmptyMsg';
@@ -10775,6 +10952,45 @@
                 emptyMsg.style.display = 'block';
             } else if (emptyMsg) {
                 emptyMsg.style.display = 'none';
+            }
+        }
+
+        // ════════════════════════════════════════════════════════════════════
+        // NAVEGACIÓN RÁPIDA ENTRE SECCIONES (CHEVRONES FLOTANTES)
+        // ════════════════════════════════════════════════════════════════════
+        function navigateSection(direction) {
+            const targets = [
+                document.querySelector('.hero-section'),
+                document.getElementById('catalogo'),
+                document.getElementById('reconstruccion'),
+                document.getElementById('ventajas'),
+                document.getElementById('contacto_form'),
+                document.querySelector('footer')
+            ].filter(Boolean);
+
+            const scrollY = window.scrollY;
+            const threshold = 120;
+
+            if (direction === 1) {
+                // Siguiente sección hacia abajo
+                for (let i = 0; i < targets.length; i++) {
+                    const top = targets[i].getBoundingClientRect().top + window.scrollY;
+                    if (top > scrollY + threshold) {
+                        targets[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        return;
+                    }
+                }
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            } else if (direction === -1) {
+                // Sección anterior hacia arriba
+                for (let i = targets.length - 1; i >= 0; i--) {
+                    const top = targets[i].getBoundingClientRect().top + window.scrollY;
+                    if (top < scrollY - threshold) {
+                        targets[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        return;
+                    }
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
 
@@ -10837,6 +11053,24 @@
             });
         });
     </script>
+
+    <!-- ── Floating Actions: Chevrons de Navegación Rápida & WhatsApp ── -->
+    <div class="floating-actions-cluster">
+        <div class="nav-chevrons-group" title="Navegar entre secciones">
+            <button class="chevron-float-btn" onclick="navigateSection(-1)" aria-label="Sección anterior" title="Subir a sección anterior">
+                <i class="fas fa-chevron-up"></i>
+            </button>
+            <div class="chevron-divider"></div>
+            <button class="chevron-float-btn" onclick="navigateSection(1)" aria-label="Siguiente sección" title="Bajar a siguiente sección">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+
+        <a class="wa-float-btn" href="https://wa.me/573174775767?text=Hola%2C%20estoy%20en%20M%C3%A1quinas%20Pro%20y%20deseo%20solicitar%20asesor%C3%ADa%20para%20compra%2Fleasing%20de%20maquinaria." target="_blank" rel="noopener" aria-label="Cotizar por WhatsApp" title="Cotizar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
 </body>
 
 </html>
