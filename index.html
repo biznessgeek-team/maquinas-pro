@@ -1980,7 +1980,11 @@
             document.getElementById('modalTitle').textContent = data.model;
             document.getElementById('modalSummary').textContent = data.summary;
             document.getElementById('modalWhatsappBtn').href = `https://wa.me/573174775767?text=Hola%2C%20estoy%20interesado%20en%20cotizar%20la%20m%C3%A1quina%20${encodeURIComponent(data.model)}%20en%20M%C3%A1quinas%20Pro`;
-            document.getElementById('modalPdfBtn').href = `https://wa.me/573174775767?text=Hola%2C%20solicito%20la%20Ficha%20T%C3%A9cnica%20oficial%20en%20PDF%20de%20la%20m%C3%A1quina%20${encodeURIComponent(data.model)}`;
+            if (data.pdf) {
+                document.getElementById('modalPdfBtn').href = data.pdf;
+            } else {
+                document.getElementById('modalPdfBtn').href = `https://wa.me/573174775767?text=Hola%2C%20solicito%20la%20Ficha%20T%C3%A9cnica%20oficial%20en%20PDF%20de%20la%20m%C3%A1quina%20${encodeURIComponent(data.model)}`;
+            }
             document.getElementById('modalFullPageBtn').href = 'producto.html?id=' + key;
 
             const table = document.getElementById('modalSpecsTable');
