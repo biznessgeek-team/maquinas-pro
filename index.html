@@ -1009,6 +1009,93 @@
             .contact-form { padding: 25px; }
         }
 
+    
+        /* --- Family Drill-Down UI --- */
+        .families-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+        .family-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            height: 220px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #222;
+        }
+        .family-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 204, 0, 0.3);
+        }
+        .family-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .family-card:hover img {
+            transform: scale(1.05);
+        }
+        .family-card-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 30px 20px 20px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+        .family-card-title {
+            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        .family-card-icon {
+            color: var(--primary-yellow);
+            font-size: 1.5rem;
+        }
+        
+        .active-family-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1a1a1a;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary-yellow);
+            color: #fff;
+            width: 100%;
+        }
+        .active-family-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        .btn-back {
+            background: transparent;
+            border: 1px solid #444;
+            color: #ccc;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-back:hover {
+            background: #333;
+            color: #fff;
+            border-color: #666;
+        }
+
     </style>
 </head>
 <body>
@@ -15343,7 +15430,8 @@
                 // 2. Check Brand
                 let matchesBrand = (currentBrand === 'all' || cardBrand === currentBrand);
                 
-                if (matchesFamily && matchesBrand) {
+                const isHidden = card.getAttribute('data-hidden') === 'true';
+                if (matchesFamily && matchesBrand && !isHidden) {
                     card.style.display = 'flex';
                 } else {
                     card.style.display = 'none';
