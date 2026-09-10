@@ -3582,6 +3582,25 @@
             pdf: 'assets/pdf/rex50-mini-excavator.pdf'
         },
 
+                'rhino-rex70-8': {
+            feature1: 'assets/catalog/rhino_rex330_action.jpg',
+            feature2: 'assets/catalog/rhino_rex330_cabin.jpg',
+            brand: 'Rhino',
+            model: 'REX70.8 Miniexcavadora',
+            category: 'Excavadoras',
+            img: 'assets/catalog/modelos/REX708.jpg',
+            summary: 'Diseñada para mejorar el trabajo. Ideal para espacios reducidos en zonas urbanas, obras hidráulicas y construcción de viviendas',
+            specs: [
+                ['Engine Make/Modelo de motor', 'Rhino® (Yanmar)'],
+                ['Emission Rating', 'Tier 2 (Tier 3, Tier 4)'],
+                ['Rated Power kW (Hp)@rpm', '54.3 (73) @ 2,200 rpm'],
+                ['Operating Weight kg (lb)', '6,800 (14,991)'],
+                ['Bucket Capacity m3 (cu. Yd)', '0.28 (0.37)'],
+            ],
+            attachments: ['breaker', 'grapple', 'coupler', 'auger'],
+            pdf: 'assets/pdf/rex708-mini-excavator.pdf'
+        },
+
         'rhino-rex130': {
             feature1: 'assets/catalog/rhino_rex330_action.jpg',
             feature2: 'assets/catalog/rhino_rex330_cabin.jpg',
@@ -6663,12 +6682,12 @@
             document.getElementById('crumbModel').textContent = data.model;
 
             // Hero Details
-            document.getElementById('prodBrandBadge').textContent = data.brand;
-            document.getElementById('prodTitle').textContent = data.model;
-            document.getElementById('prodSubtitle').textContent = data.subtitle;
-            document.getElementById('prodSummary').textContent = data.summary;
-            document.getElementById('prodMainImg').src = data.img;
-            document.getElementById('prodMainImg').alt = data.model;
+            document.getElementById('prodBrandBadge').textContent = data.brand || 'MAQUINARIA OFICIAL';
+            document.getElementById('prodTitle').textContent = data.model || 'Equipo Industrial';
+            document.getElementById('prodSubtitle').textContent = data.subtitle || `${data.category || 'Maquinaria'} • Nueva 0 Horas con Garantía y Disponibilidad Inmediata`;
+            document.getElementById('prodSummary').textContent = data.summary || 'Equipo de alto rendimiento diseñado para máxima productividad y durabilidad en operaciones exigentes.';
+            document.getElementById('prodMainImg').src = data.img || 'assets/catalog/REX330.jpg';
+            document.getElementById('prodMainImg').alt = data.model || 'Maquinaria';
 
             // WhatsApp Button Link
             const waMsg = encodeURIComponent(`Hola, estoy en la ficha técnica de la ${data.model} en MÁQUINAS PRO y deseo solicitar una cotización formal y disponibilidad.`);
@@ -6704,7 +6723,32 @@
             // Metrics Bar
             const metricsContainer = document.getElementById('metricsContainer');
             metricsContainer.innerHTML = '';
-            data.metrics.forEach(m => {
+            
+            let metricsList = data.metrics;
+            if (!metricsList || metricsList.length === 0) {
+                // Auto-generate high impact metrics from specs
+                let powerVal = 'Alto Rendimiento';
+                let weightVal = 'Heavy Duty';
+                
+                (data.specs || []).forEach(([k, v]) => {
+                    const kl = k.toLowerCase();
+                    if (powerVal === 'Alto Rendimiento' && (kl.includes('power') || kl.includes('potencia') || kl.includes('motor') || kl.includes('hp') || kl.includes('kw'))) {
+                        powerVal = v;
+                    }
+                    if (weightVal === 'Heavy Duty' && (kl.includes('weight') || kl.includes('peso') || kl.includes('operativo') || kl.includes('operating'))) {
+                        weightVal = v;
+                    }
+                });
+                
+                metricsList = [
+                    { icon: 'fa-bolt', label: 'Potencia / Motor', val: powerVal },
+                    { icon: 'fa-weight-hanging', label: 'Peso Operativo', val: weightVal },
+                    { icon: 'fa-certificate', label: 'Condición', val: '0 Horas • Nuevo' },
+                    { icon: 'fa-shield-halved', label: 'Garantía Oficial', val: 'Directa de Fábrica' }
+                ];
+            }
+
+            metricsList.forEach(m => {
                 const card = document.createElement('div');
                 card.className = 'metric-card';
                 card.innerHTML = `
